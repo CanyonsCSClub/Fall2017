@@ -25,7 +25,7 @@ GitHub Desktop  - https://github.com/integrations/github-desktop (Easier way to 
 
 1) Download:  https://desktop.github.com/ <p>
 2) Do the Tutorial. Delete Tutorial.<p>
-3) Go to: https://github.com/RealDealLea1/canyonsCSclub<p>
+3) Go to: https://github.com/CanyonsCSClub/Fall2017<p>
 4) Click on the Green "Clone or download" button, then select Open in Desktop<p>
 5) Click on the branch, and make a branch with your name.<p>
 6) Click on Publish button in the upper right to commit your branch.<p>
