@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/000.unity
+- path: Assets/HunterGoodin-2.5DSpace.unity
   isLoaded: 1
   isActive: 1
