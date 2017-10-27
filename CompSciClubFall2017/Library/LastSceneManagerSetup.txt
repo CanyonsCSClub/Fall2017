@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/PlayerDevelopmentScene.unity
+- path: Assets/Scenes/HunterGoodin-2.5DSpace.unity
   isLoaded: 1
   isActive: 1
