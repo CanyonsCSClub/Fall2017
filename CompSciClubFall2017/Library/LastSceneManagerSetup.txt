@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/PlayerDevelopmentScene.unity
+- path: Assets/Scenes/AndrewramirezHealth.unity
   isLoaded: 1
   isActive: 1
