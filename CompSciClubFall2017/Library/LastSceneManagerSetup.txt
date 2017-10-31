@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/Scenes/MainMenu.unity
+=======
+- path: Assets/Scenes/AndrewRamirez-Health&Lives.unity
+>>>>>>> Issues-#25&22
   isLoaded: 1
   isActive: 1
