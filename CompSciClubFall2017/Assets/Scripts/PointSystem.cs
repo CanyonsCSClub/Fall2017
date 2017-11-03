@@ -25,15 +25,15 @@ public class PointSystem : MonoBehaviour {
     void Start () {
         scoreText.text = point.ToString();
         scoreTimer = scoreDelayTimer;
-       
     }
 
     // Update is called once per frame
     void Update () {
         scoreTimer -= Time.deltaTime;
-        point = point + 100; //will delete later
+        //will delete later
         if (scoreTimer < 0) 
-        {    
+        {
+            point = point + 100;
             scoreTimer = scoreDelayTimer;
             scoreText.text = point.ToString();  
         }
