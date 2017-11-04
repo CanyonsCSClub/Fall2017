@@ -349,8 +349,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1884626539}
-  - component: {fileID: 1884626538}
   - component: {fileID: 1884626537}
+  - component: {fileID: 1884626538}
+  - component: {fileID: 1884626540}
   m_Layer: 0
   m_Name: Stinger
   m_TagString: Untagged
@@ -381,11 +382,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1884626536}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c755ed2ea1e34ac41aaee2ca7db2adec, type: 3}
+  m_Script: {fileID: 11500000, guid: 738971039d355c54ba8c70b9cce9452b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stingerRigidBody: {fileID: 0}
-  velocity: {x: 0, y: 0, z: 0}
 --- !u!4 &1884626539
 Transform:
   m_ObjectHideFlags: 0
@@ -400,3 +399,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1884626540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1884626536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bca09622466d8449927b181daeaf64a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 1
+  isEnemy: 1
