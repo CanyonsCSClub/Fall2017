@@ -127,7 +127,7 @@ public class Player : MonoBehaviour {
     {
         if(Input.GetKey("w")) // When w is pressed, move the player up.
         {
-            player.transform.Translate(-transform.up * Time.deltaTime * speed);
+            player.transform.Translate(transform.up * Time.deltaTime * speed);
             //Debug.Log("Player is moving up.");
         }
         if (Input.GetKey("a")) // When a is pressed, move the player to the right.
@@ -137,7 +137,7 @@ public class Player : MonoBehaviour {
         }
         if (Input.GetKey("s")) // When s is pressed, move the player down.
         {
-            player.transform.Translate(transform.up * Time.deltaTime * speed);
+            player.transform.Translate(-transform.up * Time.deltaTime * speed);
             //Debug.Log("Player is moving down.");
         }
         if(Input.GetKey("d")) // When d is pressed, move the player to the left.
