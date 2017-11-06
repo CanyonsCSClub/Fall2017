@@ -132,7 +132,7 @@ public class Player : MonoBehaviour {
         }
         if (Input.GetKey("a")) // When a is pressed, move the player to the right.
         {
-            player.transform.Translate(transform.right * Time.deltaTime * speed);
+            player.transform.Translate(-transform.right * Time.deltaTime * speed);
             //Debug.Log("Player is moving right.");
         }
         if (Input.GetKey("s")) // When s is pressed, move the player down.
@@ -142,8 +142,13 @@ public class Player : MonoBehaviour {
         }
         if(Input.GetKey("d")) // When d is pressed, move the player to the left.
         {
-            player.transform.Translate(-transform.right * Time.deltaTime * speed);
+            player.transform.Translate(transform.right * Time.deltaTime * speed);
             //Debug.Log("Player is moving to the left.");
         }
+    }
+
+    public Vector3 getPlayerPosition()
+    {
+        return player.position;
     }
 }
