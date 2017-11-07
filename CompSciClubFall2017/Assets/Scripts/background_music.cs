@@ -7,6 +7,9 @@ using System.Collections;
 //Description: when a Cassette object is inserted to the Radio, audio output changes to AudioSource of Cassette.
 /*at the moment, this script holds placeholder methods to simulate Cassette objects being inserted, 
 and therefore must be adapted to implement storage of Cassette GameObjects
+
+----------------------THIS SCIPT IS RECYCLED FROM A PREVIOUS PROJECT AND IS CURRENTLY A DUMMY SCRIPT---------------------------
+
     */
 
 public class radioScript : MonoBehaviour

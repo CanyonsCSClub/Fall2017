@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/HunterGoodin-2.5DSpace.unity
+- path: Assets/Scenes/background_audio_emitter.unity
   isLoaded: 1
   isActive: 1
