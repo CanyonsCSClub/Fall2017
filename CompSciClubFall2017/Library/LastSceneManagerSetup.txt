@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/KarimScene.unity
+- path: Assets/Scenes/De los Santos, Brenda Parallaxing Background.unity
   isLoaded: 1
   isActive: 1
