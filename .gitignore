@@ -32,5 +32,10 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+<<<<<<< HEAD
 
 CompSciClubFall2017/Library/metadata/
+=======
+
+CompSciClubFall2017/Library/
+>>>>>>> master
