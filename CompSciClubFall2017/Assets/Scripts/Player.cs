@@ -47,7 +47,7 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	public void Update ()
     {
-		
+        playerWeapons();
 	}
 
     // Display Health and Lives
@@ -79,7 +79,7 @@ public class Player : MonoBehaviour {
     {
         bool damagePlayer = false;
 
-        Asteroid enemy = collision.gameObject.GetComponent<Asteroid>(); // Enemy object, in this case an asteroid for testing purposes
+        StingerBullet enemy = collision.gameObject.GetComponent<StingerBullet>(); // Enemy object, in this case an asteroid for testing purposes
 
         // If enemy exists
         if (enemy != null)
@@ -127,28 +127,31 @@ public class Player : MonoBehaviour {
     {
         if(Input.GetKey("w")) // When w is pressed, move the player up.
         {
-            player.transform.Translate(transform.up * Time.deltaTime * speed);
+            player.transform.Translate(-transform.up * Time.deltaTime * speed);
             //Debug.Log("Player is moving up.");
         }
         if (Input.GetKey("a")) // When a is pressed, move the player to the right.
         {
-            player.transform.Translate(-transform.right * Time.deltaTime * speed);
+            player.transform.Translate(transform.right * Time.deltaTime * speed);
             //Debug.Log("Player is moving right.");
         }
         if (Input.GetKey("s")) // When s is pressed, move the player down.
         {
-            player.transform.Translate(-transform.up * Time.deltaTime * speed);
+            player.transform.Translate(transform.up * Time.deltaTime * speed);
             //Debug.Log("Player is moving down.");
         }
         if(Input.GetKey("d")) // When d is pressed, move the player to the left.
         {
-            player.transform.Translate(transform.right * Time.deltaTime * speed);
+            player.transform.Translate(-transform.right * Time.deltaTime * speed);
             //Debug.Log("Player is moving to the left.");
         }
     }
 
-    public Vector3 getPlayerPosition()
+    private void playerWeapons()
     {
-        return player.position;
+        if(Input.GetKey("space"))
+        {
+            Debug.Log("BAM!");
+        }
     }
 }

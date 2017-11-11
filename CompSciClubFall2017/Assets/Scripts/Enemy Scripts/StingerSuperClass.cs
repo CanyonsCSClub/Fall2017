@@ -19,9 +19,11 @@ public class StingerSuperClass : MonoBehaviour
     private Rigidbody stingerRigidBody; // Creating a Rigidbody variable named stingerRigidbody that holds the Rigidbody component of the Stinger enemy.
     private Rigidbody playerRigidBody; // This variable holds the Player's RigidBody.
     private const int speed = 20; // This variable holds the speed for the Stinger enemy.
-    private int health;
+    private bool isAlive; // Boolean variable that represents if the Stinger enemy is alive.
+    private int health; // Integer variable that holds the Stinger health.
     private Vector3 stingerPos;
     private Vector3 playerPos;
+    private Vector3 newPos;
     // private Vector3 velocity;
 
     // Use this for initialization
@@ -31,28 +33,46 @@ public class StingerSuperClass : MonoBehaviour
         //stingerPos = GameObject.Find("PlayerTester").transform;
     }
 
+    public void Update()
+    {
+        checkStingerHealth();
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
-        
-        stingerMovement();
-        stingerWeapons();
-        
+        stingerMovement(); // Checks if there is any input from the player and adjusts the enemy Stinger's position according to the change.
+        stingerWeapons(); // Fires the Stinger's weapons if the player enters the line of sight of the Stinger.
     }
 
     public void stingerMovement()
     {
         stingerPos = stingerRigidBody.position;
         playerPos = GameObject.Find("PlayerTester").GetComponent<Transform>().position;
-        //transform.position = new Vector(0, stingerPos.position.y, 0); MAYBE LATER?
-        transform.position = Vector3.MoveTowards(stingerPos, playerPos, Time.deltaTime * speed);
+        newPos = new Vector3(playerPos.x + 4f, playerPos.y, 0f);
+        transform.position = Vector3.MoveTowards(stingerPos, newPos, Time.deltaTime * speed);
     }
 
     private void stingerWeapons()
     {
-        if(Physics.Raycast(stingerRigidBody.position, transform.right, 20))
+        Ray stingerRaycast = new Ray(stingerPos, - transform.right);
+        if(Physics.Raycast(stingerRaycast))
         {
-            Debug.Log("Shoot!");
+            StingerBullet clone  = Instantiate(stingerRigidBody.position, transform);
+            Debug.Log("Pew! Pew!");
+        }
+    }
+
+    public void takeDamage() // takeDamage is called when the bullet hits the enemy.
+    {
+        health -= 10;
+    }
+
+    private void checkStingerHealth() // Checks to see if the Stinger is alive or not.
+    {
+        if(health < 0)
+        {
+            Destroy(gameObject);
         }
     }
 }
