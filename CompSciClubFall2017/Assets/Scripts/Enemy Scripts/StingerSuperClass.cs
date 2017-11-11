@@ -36,6 +36,7 @@ public class StingerSuperClass : MonoBehaviour
     {
         
         stingerMovement();
+        stingerWeapons();
         
     }
 
@@ -45,7 +46,13 @@ public class StingerSuperClass : MonoBehaviour
         playerPos = GameObject.Find("PlayerTester").GetComponent<Transform>().position;
         //transform.position = new Vector(0, stingerPos.position.y, 0); MAYBE LATER?
         transform.position = Vector3.MoveTowards(stingerPos, playerPos, Time.deltaTime * speed);
+    }
 
-        
+    private void stingerWeapons()
+    {
+        if(Physics.Raycast(stingerRigidBody.position, transform.right, 20))
+        {
+            Debug.Log("Shoot!");
+        }
     }
 }
