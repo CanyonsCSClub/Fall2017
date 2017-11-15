@@ -2,7 +2,7 @@
  * 
  * Author: Spencer Wilson
  * Date Created: 11/3/2017 @ 11:17 pm
- * Date Modified: 11/5/2017 @ 10:26 pm
+ * Date Modified: 11/14/2017 @ 10:36 pm
  * Project: CompSciClubFall2017
  * File: StingerSuperClass.cs
  * Description: This program houses all of the code for the Stinger AI.
@@ -15,7 +15,7 @@ using UnityEngine;
 
 public class StingerSuperClass : MonoBehaviour
 {
-
+    public GameObject bullet;
     private Rigidbody stingerRigidBody; // Creating a Rigidbody variable named stingerRigidbody that holds the Rigidbody component of the Stinger enemy.
     private Rigidbody playerRigidBody; // This variable holds the Player's RigidBody.
     private const int speed = 20; // This variable holds the speed for the Stinger enemy.
@@ -58,7 +58,7 @@ public class StingerSuperClass : MonoBehaviour
         Ray stingerRaycast = new Ray(stingerPos, - transform.right);
         if(Physics.Raycast(stingerRaycast))
         {
-            StingerBullet clone  = Instantiate(stingerRigidBody.position, transform);
+            Instantiate(bullet, transform.position, transform.rotation);
             Debug.Log("Pew! Pew!");
         }
     }

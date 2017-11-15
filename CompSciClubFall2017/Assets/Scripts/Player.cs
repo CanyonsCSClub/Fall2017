@@ -2,7 +2,7 @@
  * 
  * Authors: Spencer Wilson, Andrew Ramirez
  * Date Created: 10/8/2017 @ 5:29 pm
- * Date Modified: 11/1/2017 @ 9:12 pm
+ * Date Modified: 11/14/2017 @ 10:36 pm
  * Project: CompSciClubFall2017
  * File: Player.cs
  * Description: File that houses all of the code for the player's health, lives, movement, and abilities.
@@ -127,22 +127,22 @@ public class Player : MonoBehaviour {
     {
         if(Input.GetKey("w")) // When w is pressed, move the player up.
         {
-            player.transform.Translate(-transform.up * Time.deltaTime * speed);
+            player.transform.Translate(transform.up * Time.deltaTime * speed);
             //Debug.Log("Player is moving up.");
         }
-        if (Input.GetKey("a")) // When a is pressed, move the player to the right.
+        if (Input.GetKey("a")) // When a is pressed, move the player to the left.
         {
-            player.transform.Translate(transform.right * Time.deltaTime * speed);
+            player.transform.Translate(-transform.right * Time.deltaTime * speed);
             //Debug.Log("Player is moving right.");
         }
         if (Input.GetKey("s")) // When s is pressed, move the player down.
         {
-            player.transform.Translate(transform.up * Time.deltaTime * speed);
+            player.transform.Translate(-transform.up * Time.deltaTime * speed);
             //Debug.Log("Player is moving down.");
         }
-        if(Input.GetKey("d")) // When d is pressed, move the player to the left.
+        if(Input.GetKey("d")) // When d is pressed, move the player to the right.
         {
-            player.transform.Translate(-transform.right * Time.deltaTime * speed);
+            player.transform.Translate(transform.right * Time.deltaTime * speed);
             //Debug.Log("Player is moving to the left.");
         }
     }
