@@ -1,24 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class PauseMenu : MonoBehaviour
-{
+public class PauseMenu : MonoBehaviour {
     public bool isResume;
-    public bool isReturnToMenu;
+    public bool isReturn;
 
-    void OnMouseUp()
-    {
+    void OnMouseUp() {
         if (isResume)
         {
             Time.timeScale = 1;
-            Application.LoadLevel(1);
+            SceneManager.LoadScene(2);
             // How to unpause
         }
-        if (isReturnToMenu)
+        if (isReturn)
         {
             Time.timeScale = 1;
-            Application.LoadLevel(0);
+            SceneManager.LoadScene(0);
         }
     }
 }

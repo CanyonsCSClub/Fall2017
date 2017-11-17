@@ -15,6 +15,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
@@ -47,7 +48,7 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	public void Update ()
     {
-		
+
 	}
 
     // Display Health and Lives
@@ -125,7 +126,13 @@ public class Player : MonoBehaviour {
 
     private void playerMovement()
     {
-        if(Input.GetKey("w")) // When w is pressed, move the player up.
+        if(Input.GetKey(KeyCode.Escape))
+        {
+            Time.timeScale = 0.001f;
+            SceneManager.LoadScene(1);
+
+        }
+        if (Input.GetKey("w")) // When w is pressed, move the player up.
         {
             player.transform.Translate(-transform.up * Time.deltaTime * speed);
             //Debug.Log("Player is moving up.");
