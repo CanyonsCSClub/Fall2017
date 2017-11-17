@@ -45,15 +45,16 @@ public class StingerSuperClass : MonoBehaviour
         stingerWeapons(); // Fires the Stinger's weapons if the player enters the line of sight of the Stinger.
     }
 
-    public void stingerMovement()
+    public void stingerMovement() // Function houses the code for the Stinger's movement.
     {
         stingerPos = stingerRigidBody.position;
         playerPos = GameObject.Find("PlayerTester").GetComponent<Transform>().position;
-        newPos = new Vector3(playerPos.x + 4f, playerPos.y, 0f);
+        newPos = new Vector3(playerPos.x + 10f, playerPos.y, 0f);
         transform.position = Vector3.MoveTowards(stingerPos, newPos, Time.deltaTime * speed);
     }
 
-    private void stingerWeapons()
+    private void stingerWeapons() // Raycasts to check if the player is infront of the Stinger. If so, the Stinger lets off a burst of rounds.
+
     {
         Ray stingerRaycast = new Ray(stingerPos, - transform.right);
         if(Physics.Raycast(stingerRaycast))

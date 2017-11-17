@@ -231,7 +231,6 @@
     <Compile Include="Assets\Scripts\Asteroid.cs" />
     <Compile Include="Assets\Scripts\Boundary.cs" />
     <Compile Include="Assets\Scripts\ButtonHover.cs" />
-    <Compile Include="Assets\Scripts\Enemy Scripts\EnemyHealth.cs" />
     <Compile Include="Assets\Scripts\Enemy Scripts\StingerBullet.cs" />
     <Compile Include="Assets\Scripts\Enemy Scripts\StingerSuperClass.cs" />
     <Compile Include="Assets\Scripts\EventSystem.cs" />
