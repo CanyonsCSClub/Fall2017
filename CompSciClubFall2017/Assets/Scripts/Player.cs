@@ -2,7 +2,7 @@
  * 
  * Authors: Spencer Wilson, Andrew Ramirez
  * Date Created: 10/8/2017 @ 5:29 pm
- * Date Modified: 10/29/2017 @ 3:35 pm
+ * Date Modified: 11/14/2017 @ 10:36 pm
  * Project: CompSciClubFall2017
  * File: Player.cs
  * Description: File that houses all of the code for the player's health, lives, movement, and abilities.
@@ -47,7 +47,7 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	public void Update ()
     {
-		
+        playerWeapons();
 	}
 
     // Display Health and Lives
@@ -79,7 +79,7 @@ public class Player : MonoBehaviour {
     {
         bool damagePlayer = false;
 
-        Asteroid enemy = collision.gameObject.GetComponent<Asteroid>(); // Enemy object, in this case an asteroid for testing purposes
+        StingerBullet enemy = collision.gameObject.GetComponent<StingerBullet>(); // Enemy object, in this case an asteroid for testing purposes
 
         // If enemy exists
         if (enemy != null)
@@ -125,25 +125,33 @@ public class Player : MonoBehaviour {
 
     private void playerMovement()
     {
-        if(Input.GetKey("w")) // When w is pressed, move the player forward and display a message to the debug log.
+        if(Input.GetKey("w")) // When w is pressed, move the player up.
         {
-            player.transform.Translate(transform.forward * Time.deltaTime * speed);
-            Debug.Log("Player is moving forward.");
+            player.transform.Translate(transform.up * Time.deltaTime * speed);
+            //Debug.Log("Player is moving up.");
         }
-        if(Input.GetKey("a")) // When a is pressed, move the player to the left and display a message to the debug log.
+        if (Input.GetKey("a")) // When a is pressed, move the player to the left.
         {
             player.transform.Translate(-transform.right * Time.deltaTime * speed);
-            //Debug.Log("Player is moving to the left.");
+            //Debug.Log("Player is moving right.");
         }
-        if(Input.GetKey("s")) // When s is pressed, move the player backwards and display a message to the debug log.
+        if (Input.GetKey("s")) // When s is pressed, move the player down.
         {
-            player.transform.Translate(-transform.forward * Time.deltaTime * speed);
-            //Debug.Log("Player is moving backwards.");
+            player.transform.Translate(-transform.up * Time.deltaTime * speed);
+            //Debug.Log("Player is moving down.");
         }
-        if(Input.GetKey("d")) // When d is pressed, move the player to the right and display a message to the debug log.
+        if(Input.GetKey("d")) // When d is pressed, move the player to the right.
         {
             player.transform.Translate(transform.right * Time.deltaTime * speed);
-            //Debug.Log("Player is moving to the right.");
+            //Debug.Log("Player is moving to the left.");
+        }
+    }
+
+    private void playerWeapons()
+    {
+        if(Input.GetKey("space"))
+        {
+            Debug.Log("BAM!");
         }
     }
 }
