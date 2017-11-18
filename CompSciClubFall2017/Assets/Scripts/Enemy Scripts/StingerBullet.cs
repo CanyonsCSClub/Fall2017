@@ -28,12 +28,4 @@ public class StingerBullet : MonoBehaviour {
         stingerbulletRigidbody.transform.Translate(-transform.right * Time.deltaTime * 100f);
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        //if (GameObject.Find("PlayerTester"))
-        //    {
-        //    GameObject.Find("PlayerTester").GetComponent<Player>takeDamage();
-        //    }
-    }
-
 }

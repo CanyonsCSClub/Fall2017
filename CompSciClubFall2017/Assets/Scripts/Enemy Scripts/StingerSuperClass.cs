@@ -30,7 +30,6 @@ public class StingerSuperClass : MonoBehaviour
     void Start()
     {
         stingerRigidBody = GetComponent<Rigidbody>();
-        //stingerPos = GameObject.Find("PlayerTester").transform;
     }
 
     public void Update()
@@ -54,7 +53,6 @@ public class StingerSuperClass : MonoBehaviour
     }
 
     private void stingerWeapons() // Raycasts to check if the player is infront of the Stinger. If so, the Stinger lets off a burst of rounds.
-
     {
         Ray stingerRaycast = new Ray(stingerPos, - transform.right);
         if(Physics.Raycast(stingerRaycast))

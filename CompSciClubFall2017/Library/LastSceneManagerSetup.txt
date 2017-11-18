@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/AndrewRamirez-Health&Lives.unity
+- path: Assets/Scenes/Boundary.unity
   isLoaded: 1
   isActive: 1
