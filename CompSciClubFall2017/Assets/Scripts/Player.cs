@@ -1,16 +1,13 @@
 ﻿/*
  * 
- * Authors: Spencer Wilson, Andrew Ramirez
+ * Authors: Spencer Wilson, Andrew Ramirez, Hunter Goodin
  * Date Created: 10/8/2017 @ 5:29 pm
- * Date Modified: 11/14/2017 @ 10:36 pm
+ * Date Modified: 11/20/2017 @ 9:13 pm
  * Project: CompSciClubFall2017
  * File: Player.cs
  * Description: File that houses all of the code for the player's health, lives, movement, and abilities.
  * 
  */
-
- /*ADD YOUR NAME TO THE AUTHORS AND MAKE SURE YOU UPDATE THE DATE MODIFIED! ALSO, COMMENT YOUR CODE!!! COMMENT, COMMENT, COMMENT!*/
- /*WELCOME TO THE TEAM*/
 
 using System.Collections;
 using System.Collections.Generic;
@@ -19,43 +16,55 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
 
-    private float speed; // Declared a floating point variable named speed that will house the user's speed.
+
+    /* Code regarding the player's moving mechanics & defining the player  */ 
+    public float speed; // Declared a floating point variable named speed that will house the user's speed.
     private Rigidbody player; // Creating a Rigidbody object named player.
     private bool isEnemy;
-    private int currentLives;
+
+    /* Code regarding player's health and lives */
+    // private int currentLives;
     private const int maxLives = 5; // Max amount of lives that the player can have
     private const int maxHealth = 100; // Max amount of player health
-
     public Text healthText; // Reference to health text
-    public Text liveText; // Reference to live text
-    public Text gameOverText; // Reference to GameOver text
+    // public Text liveText; // Reference to live text
+    // public Text gameOverText; // Reference to GameOver text
+    public int playerHealth = 100; // We will use this for the player's health 
+
+    /* Code regarding player's shooting mechanics */ 
+    public GameObject shot;         // We will use this to reference the player's projectile -- in-engine, we will populate this with our ""Bolt" prefab. 
+    public Transform shotSpawn;     // We will use this to know where to spawn the shot. The location will be set to where the "ShotSpawn" GameObject is. We will do this by populating the Player with the ShotSpawn child object in-engine. 
+    public float fireRate;          // The player's fire rate -- this will probably kept as 0 but... just in case. 
+    private float nextFire;         // Will be used for the next time the player can fire a shot.
+
 
     public void Start () // Start method initializes any variables/objects/rigidbodies that need to be used within the script.
     {
         player = GetComponent<Rigidbody>(); // Getting the Rigidbody component of the GameObject player is attached to.
-        speed = 40f; // Initializing the speed variable with an value of 40.
+        // speed = 40f; // Initializing the speed variable with an value of 40.
         isEnemy = false; // Sets the player as not an enemy
-        currentLives = 2; // Set initial player live count
+        //currentLives = 2; // Set initial player live count
         Health playerHealth = this.GetComponent<Health>();
         playerHealth.hp = 100; // Set initial player health
         setHealthandLiveText(); // Update the health and live count text component
 
-        Debug.Log("Current Lives: " + currentLives);
+        //Debug.Log("Current Lives: " + currentLives);
         Debug.Log("Current Health " + playerHealth.hp);
     }
 	
 	// Update is called once per frame
 	public void Update ()
     {
+        isAlive(); // Function checks if the player is alive or not.
         playerWeapons();
 	}
 
     // Display Health and Lives
-    void setHealthandLiveText()
+    public void setHealthandLiveText()
     {
         Health playerHealth = this.GetComponent<Health>();
-        healthText.text = "Ship Health: " + playerHealth.hp.ToString() + "%";
-        liveText.text = "Lives: " + currentLives;
+        healthText.text = "Ship Health: " + playerHealth.hp.ToString();
+        // liveText.text = "Lives: " + currentLives;
     }
 
     public void FixedUpdate() // FixedUpdate is called on a regular timeline. Use FixedUpdate for physics based functions that need to be executed.
@@ -70,16 +79,26 @@ public class Player : MonoBehaviour {
         if (playerHealth != null && playerHealth.hp <= 0)
         {
             // Game Over.
-            gameOverText.text = "Game Over"; // Show game over text
+            // gameOverText.text = "Game Over"; // Show game over text
             // todo: allow the player to restart? or go back to the game menu
         }
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter(Collision col)
     {
+
+        if (col.gameObject.name == "StingerBullet(Clone)")
+        {
+            Destroy(col.gameObject);
+        }
+        else if (col.gameObject.name == "Bolt(Clone)")
+        {
+            Destroy(col.gameObject);
+        }
+
         bool damagePlayer = false;
 
-        StingerBullet enemy = collision.gameObject.GetComponent<StingerBullet>(); // Enemy object, in this case an asteroid for testing purposes
+        StingerBullet enemy = col.gameObject.GetComponent<StingerBullet>(); // Enemy object, in this case an asteroid for testing purposes
 
         // If enemy exists
         if (enemy != null)
@@ -99,17 +118,18 @@ public class Player : MonoBehaviour {
                 Debug.Log("Current Health: " + playerHealth.hp);
                 setHealthandLiveText();
 
+                /*
                 if (playerHealth.hp <= 0)
                 {
                     this.currentLives--; // decrement player live count
                     Debug.Log("Current Lives: " + this.currentLives);
                     setHealthandLiveText(); // update player lives
 
-                    // Run this if player live count is less than 0 
+                    Run this if player live count is less than 0 
                     if (this.currentLives <= 0)
                     {
-                        Debug.Log("Game Over"); // Rip in pieces  
-                        Destroy(gameObject);
+                       Debug.Log("Game Over"); // Rip in pieces  
+                       Destroy(gameObject);
                     }
                     else
                     {
@@ -118,7 +138,7 @@ public class Player : MonoBehaviour {
                         setHealthandLiveText(); // update health
                     }
                 }
-
+                */
             }
         }
     }
@@ -147,11 +167,35 @@ public class Player : MonoBehaviour {
         }
     }
 
-    private void playerWeapons()
+    private void isAlive()
     {
-        if(Input.GetKey("space"))
+        if(playerHealth > 0)
         {
-            Debug.Log("BAM!");
+            Debug.Log("Player is alive");
+        }
+        else if(playerHealth == 0)
+        {
+            Debug.Log("Player is dead");
+            // Time.timeScale = 0;             // Commented out to test the Game Over Scene 
+            Application.LoadLevel(2);
         }
     }
+
+    /* Hunter Goodin was here */
+    private void playerWeapons()
+    {
+        if(Input.GetKeyDown("space"))
+        {
+            // GameObject clone = 
+            Instantiate(shot, shotSpawn.position, shotSpawn.rotation); // Creates a new instance of the Shot prefab everytime this is called. 
+        }
+    }
+
+    public void TakeDamage(int damage) // This function is called whenever an enemy bullet enters the player's collider.
+    {
+        playerHealth -= damage; 
+    }
+
 }
+
+
