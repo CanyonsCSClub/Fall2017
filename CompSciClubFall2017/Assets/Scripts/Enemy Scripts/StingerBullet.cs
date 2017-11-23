@@ -1,6 +1,6 @@
 ﻿/*
  * 
- * Author: Spencer Wilson
+ * Author: Spencer Wilson, Hunter Goodin
  * Date Created: 11/14/2017 @ 10:19 pm
  * Date Modified: 11/14/2017 @ 10:20 pm
  * Project: CompSciClubFall2017
@@ -14,8 +14,11 @@ using UnityEngine;
 
 public class StingerBullet : MonoBehaviour {
 
+    public float speed;
+    public int damage = 5; 
+
     private Rigidbody stingerbulletRigidbody; // Creating a variable to hold the Stinger rigidbody reference.
-    private float lifetime = 2f; // Creating a float variable that holds the amount of seconds the object StingerBullet exists for before self-destructing.
+    private float lifetime = 1.5f; // Creating a float variable that holds the amount of seconds the object StingerBullet exists for before self-destructing.
 
 	void Start()
     {
@@ -25,15 +28,16 @@ public class StingerBullet : MonoBehaviour {
 
     public void FixedUpdate()
     {
-        stingerbulletRigidbody.transform.Translate(-transform.right * Time.deltaTime * 100f);
+        stingerbulletRigidbody.transform.Translate(-transform.right * Time.deltaTime * speed);
     }
 
+    /* Hunter Goodin was here */
     private void OnCollisionEnter(Collision collision)
     {
-        //if (GameObject.Find("PlayerTester"))
-        //    {
-        //    GameObject.Find("PlayerTester").GetComponent<Player>takeDamage();
-        //    }
+        if (collision.gameObject.layer == 8)
+        {
+            GameObject.Find("Player").GetComponent<Player>().TakeDamage(damage);
+        }
     }
 
 }
