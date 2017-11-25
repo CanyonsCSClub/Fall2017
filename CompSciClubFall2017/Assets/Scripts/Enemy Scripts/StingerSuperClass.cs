@@ -25,6 +25,8 @@ public class StingerSuperClass : MonoBehaviour
     private Vector3 playerPos;
     private Vector3 newPos;
 
+    public int scoreValue = 100; // We will use this to incriment the points 
+
     public Transform shotSpawn; 
     private float fireRate = 0.5f;
     private float nextFire; 
@@ -90,6 +92,7 @@ public class StingerSuperClass : MonoBehaviour
     {
         if(health < 0)
         {
+            GameObject.Find("DisplayPoints").GetComponent<PointSystem>().UpdateScore(scoreValue);
             Destroy(gameObject);
         }
     }

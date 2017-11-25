@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43667564, g: 0.48427135, b: 0.56452316, a: 1}
+  m_IndirectSpecularColor: {r: 0.43667546, g: 0.48427135, b: 0.5645225, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -547,8 +547,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 26.7, y: 8.937502, z: 10}
-  m_Center: {x: 13.35, y: -4.468751, z: 0}
+  m_Size: {x: 62.2, y: 8.937502, z: 10}
+  m_Center: {x: 30.8, y: -4.468751, z: 0}
 --- !u!102 &1085183207
 TextMesh:
   serializedVersion: 3
@@ -556,7 +556,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1085183204}
-  m_Text: START
+  m_Text: Engage Mission
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -611,7 +611,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1085183204}
   m_LocalRotation: {x: 0.7070471, y: 0.0091874, z: 0.0091874, w: 0.7070471}
-  m_LocalPosition: {x: -4.9995475, y: -0.03468446, z: 0.0000016093254}
+  m_LocalPosition: {x: -8.06, y: -0.11, z: 0.0000016093254}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -764,7 +764,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1107260690}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 154.5, y: 87, z: 0}
+  m_LocalPosition: {x: 571.5, y: 279, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
