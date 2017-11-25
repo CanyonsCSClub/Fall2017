@@ -1,5 +1,5 @@
 ﻿/*
- * Programmer: Karim Dabboussi
+ * Programmer: Karim Dabboussi & Hunter Goodin 
  * File Name: PointSystem.cs
  * Description: This file has the code for the point system
  * 
@@ -22,13 +22,16 @@ public class PointSystem : MonoBehaviour {
     const int BOSS1 = 1000; //possible values for later
     const int BOSS2 = 2000; //possible values for later
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
         scoreText.text = point.ToString();
         scoreTimer = scoreDelayTimer;
     }
 
     // Update is called once per frame
-    void Update () {
+    void Update ()
+    {
+        /* This will incriment the score by 100 every other second 
         scoreTimer -= Time.deltaTime;
         //will delete later
         if (scoreTimer < 0) 
@@ -38,8 +41,15 @@ public class PointSystem : MonoBehaviour {
             scoreText.text = point.ToString();  
         }
         checkEvent(point);
-
+        */
     }
+
+    public void UpdateScore(int ptInc)
+    {
+        point = point + ptInc;
+        scoreText.text = point.ToString();
+    }
+
     public void checkEvent(int point) {
         if (point >= 10000 && point <= 10500) //optimization needed so boss does not appear multiple times
         {
