@@ -37,11 +37,10 @@ public class Player : MonoBehaviour {
     public float fireRate;          // The player's fire rate -- this will probably kept as 0 but... just in case. 
     private float nextFire;         // Will be used for the next time the player can fire a shot.
 
-
     public void Start () // Start method initializes any variables/objects/rigidbodies that need to be used within the script.
     {
         player = GetComponent<Rigidbody>(); // Getting the Rigidbody component of the GameObject player is attached to.
-        // speed = 40f; // Initializing the speed variable with an value of 40.
+        speed = 40f; // Initializing the speed variable with an value of 40.
         isEnemy = false; // Sets the player as not an enemy
         //currentLives = 2; // Set initial player live count
         Health playerHealth = this.GetComponent<Health>();
@@ -162,6 +161,7 @@ public class Player : MonoBehaviour {
             player.transform.Translate(transform.right * Time.deltaTime * speed);
             //Debug.Log("Player is moving to the left.");
         }
+        //player.position = new Vector3(transform.position.x, transform.position.y, 0f);
     }
 
     private void isAlive()
