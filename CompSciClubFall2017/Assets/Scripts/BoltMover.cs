@@ -36,56 +36,6 @@ public class BoltMover : MonoBehaviour
         {
             col.gameObject.GetComponent<ChomperClass>().takeDamage(damage);
         }
-
-        //if (col.gameObject.name == "Stinger")
-        //{
-        //    GameObject.Find("Stinger").GetComponent<StingerSuperClass>().takeDamage(damage);
-        //}
-        //else if (col.gameObject.name == "Stinger (1)")
-        //{
-        //    GameObject.Find("Stinger (1)").GetComponent<StingerSuperClass>().takeDamage(damage);
-        //}
-        //else if (col.gameObject.name == "Stinger (2)")
-        //{
-        //    GameObject.Find("Stinger (2)").GetComponent<StingerSuperClass>().takeDamage(damage);
-        //}
-        //else if (col.gameObject.name == "Stinger (3)")
-        //{
-        //    GameObject.Find("Stinger (3)").GetComponent<StingerSuperClass>().takeDamage(damage);
-        //}
-        //else if (col.gameObject.name == "Stinger (4)")
-        //{
-        //    GameObject.Find("Stinger (4)").GetComponent<StingerSuperClass>().takeDamage(damage);
-        //}
-        //else if (col.gameObject.name == "Stinger (5)")
-        //{
-        //    GameObject.Find("Stinger (5)").GetComponent<StingerSuperClass>().takeDamage(damage);
-        //}
-        // Chomper 
-        //else if (col.gameObject.name == "Chomper")
-        //{
-        //    GameObject.Find("Chomper").GetComponent<ChomperClass>().takeDamage(damage);
-        //}
-        //else if (col.gameObject.name == "Chomper (1)")
-        //{
-        //    GameObject.Find("Chomper (1)").GetComponent<ChomperClass>().takeDamage(damage);
-        //}
-        //else if (col.gameObject.name == "Chomper (2)")
-        //{
-        //    GameObject.Find("Chomper (2)").GetComponent<ChomperClass>().takeDamage(damage);
-        //}
-        //else if (col.gameObject.name == "Chomper (3)")
-        //{
-        //    GameObject.Find("Chomper (3)").GetComponent<ChomperClass>().takeDamage(damage);
-        //}
-        //else if (col.gameObject.name == "Chomper (4)")
-        //{
-        //    GameObject.Find("Chomper (4)").GetComponent<ChomperClass>().takeDamage(damage);
-        //}
-        //else if (col.gameObject.name == "Chomper (5)")
-        //{
-        //    GameObject.Find("Chomper (5)").GetComponent<ChomperClass>().takeDamage(damage);
-        //}
         else if (col.gameObject.name == "StingerBullet(Clone)")
         {
             Destroy(col.gameObject);

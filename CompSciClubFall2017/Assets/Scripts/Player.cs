@@ -2,7 +2,7 @@
  * 
  * Authors: Spencer Wilson, Andrew Ramirez, Hunter Goodin
  * Date Created: 10/8/2017 @ 5:29 pm
- * Date Modified: 11/20/2017 @ 9:13 pm
+ * Date Modified: 11/20/2017 @ 10:06 pm by Hunter Goodin 
  * Project: CompSciClubFall2017
  * File: Player.cs
  * Description: File that houses all of the code for the player's health, lives, movement, and abilities.
@@ -21,6 +21,7 @@ public class Player : MonoBehaviour {
     public float speed; // Declared a floating point variable named speed that will house the user's speed.
     private Rigidbody player; // Creating a Rigidbody object named player.
     private bool isEnemy;
+    public Boundary boundary; 
 
     /* Code regarding player's health and lives */
     // private int currentLives;
@@ -139,6 +140,12 @@ public class Player : MonoBehaviour {
         }
     }
 
+    [System.Serializable]
+    public class Boundary
+    {
+        public float xMin, xMax, yMin, yMax;    // initializes these values 
+    }
+
     private void playerMovement()
     {
         if(Input.GetKey("w")) // When w is pressed, move the player up.
@@ -162,6 +169,12 @@ public class Player : MonoBehaviour {
             //Debug.Log("Player is moving to the left.");
         }
         //player.position = new Vector3(transform.position.x, transform.position.y, 0f);
+        player.position = new Vector3
+        (
+            Mathf.Clamp (player.position.x, boundary.xMin, boundary.xMax),  // The player can't move beyond these values on the X axis 
+            Mathf.Clamp (player.position.y, boundary.yMin, boundary.yMax),  // The player can't move beyond these values on the Y axis
+            0.0f                                                            // The player can't move beyond 0.0 on the Z axis 
+        ); 
     }
 
     private void isAlive()

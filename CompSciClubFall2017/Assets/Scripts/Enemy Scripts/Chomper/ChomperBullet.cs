@@ -27,11 +27,22 @@ public class ChomperBullet : MonoBehaviour {
         //chomperBulletRigidbody.transform.Translate(-transform.right * Time.deltaTime * speed);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider col)
     {
-        if (collision.gameObject.layer == 8)
+        if (col.gameObject.layer == 8)
         {
-            GameObject.Find("Player").GetComponent<Player>().TakeDamage(chomperDamage);
+            if (col.gameObject.tag == "Stinger")
+            {
+                GameObject.Find("Player").GetComponent<Player>().TakeDamage(chomperDamage);
+            }
+            else if (col.gameObject.tag == "Bolt(Clone)")
+            {
+                Destroy(col.gameObject);
+            }
+            else if (col.gameObject.name == "StingerBullet(Clone)")
+            {
+                Destroy(col.gameObject);
+            }
         }
     }
 

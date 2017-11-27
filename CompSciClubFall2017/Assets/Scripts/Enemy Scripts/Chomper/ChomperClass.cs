@@ -24,7 +24,7 @@ public class ChomperClass : MonoBehaviour
     public int scoreValue = 100; // We will use this to incriment the points 
 
     public Transform shotSpawn; 
-    private float fireRate = 10f;
+    private float fireRate = 5f;
     private float nextFire; 
     // private Vector3 velocity;
 
@@ -51,7 +51,7 @@ public class ChomperClass : MonoBehaviour
     {
         chomperPos = chomperRigidBody.position;
         playerPos = GameObject.Find("Player").GetComponent<Transform>().position;
-        newPos = new Vector3(18, playerPos.y, 0f);
+        newPos = new Vector3(16, playerPos.y, 0f);
         transform.position = Vector3.MoveTowards(chomperPos, newPos, Time.deltaTime * speed);
     }
 
@@ -62,7 +62,7 @@ public class ChomperClass : MonoBehaviour
         {
             nextFire = Time.time + fireRate; 
             Instantiate(bullet, shotSpawn.position, shotSpawn.rotation);
-            Debug.Log("Pew! Pew!");
+            Debug.Log("Chomper Lazer");
         }
     }
 
