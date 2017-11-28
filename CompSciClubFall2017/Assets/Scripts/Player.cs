@@ -97,14 +97,32 @@ public class Player : MonoBehaviour {
         }
 
         bool damagePlayer = false;
+        int dam; 
 
-        StingerBullet enemy = col.gameObject.GetComponent<StingerBullet>(); // Enemy object, in this case an asteroid for testing purposes
-
-        // If enemy exists
-        if (enemy != null)
+        if (col.gameObject.name == "StingerBullet(Clone)")
         {
-            damagePlayer = true;
+            StingerBullet enemy = col.gameObject.GetComponent<StingerBullet>();
+            if (enemy != null)
+            {
+                damagePlayer = true;
+            }
+            dam = 5;
         }
+        else if (col.gameObject.name == "ChomperLazer(Clone)")
+        {
+            ChomperBullet enemy = col.gameObject.GetComponent<ChomperBullet>();
+            if (enemy != null)
+            {
+                damagePlayer = true;
+            }
+            dam = 10;
+        }
+        else
+        {
+            dam = 0; 
+        }
+
+         
 
         // Damage the player
         if (damagePlayer)
@@ -112,33 +130,12 @@ public class Player : MonoBehaviour {
             Health playerHealth = this.GetComponent<Health>();
        
             // Damage the player if their health is not 0
-            if (playerHealth.hp != 0) {
-                playerHealth.Damage(10, this.isEnemy); // Damage the player by x amount
+            if (playerHealth.hp != 0)
+            {
+                playerHealth.Damage(dam, this.isEnemy); // Damage the player by x amount
 
                 Debug.Log("Current Health: " + playerHealth.hp);
                 setHealthandLiveText();
-
-                /*
-                if (playerHealth.hp <= 0)
-                {
-                    this.currentLives--; // decrement player live count
-                    Debug.Log("Current Lives: " + this.currentLives);
-                    setHealthandLiveText(); // update player lives
-
-                    Run this if player live count is less than 0 
-                    if (this.currentLives <= 0)
-                    {
-                       Debug.Log("Game Over"); // Rip in pieces  
-                       Destroy(gameObject);
-                    }
-                    else
-                    {
-                        playerHealth.hp = maxHealth;
-                        Debug.Log("Current Health: " + playerHealth.hp);
-                        setHealthandLiveText(); // update health
-                    }
-                }
-                */
             }
         }
     }
@@ -173,7 +170,7 @@ public class Player : MonoBehaviour {
         {
             Debug.Log("Player is alive");
         }
-        else if(playerHealth == 0)
+        else if(playerHealth < 0)
         {
             Debug.Log("Player is dead");
             // Time.timeScale = 0;             // Commented out to test the Game Over Scene 
@@ -193,7 +190,7 @@ public class Player : MonoBehaviour {
 
     public void TakeDamage(int damage) // This function is called whenever an enemy bullet enters the player's collider.
     {
-        playerHealth -= damage; 
+        playerHealth = playerHealth - damage; 
     }
 
 }

@@ -15,7 +15,7 @@ using UnityEngine;
 public class StingerBullet : MonoBehaviour {
 
     public float speed;
-    public int damage = 5; 
+    public int stingerDamage = 5; 
 
     private Rigidbody stingerbulletRigidbody; // Creating a variable to hold the Stinger rigidbody reference.
     private float lifetime = 1.5f; // Creating a float variable that holds the amount of seconds the object StingerBullet exists for before self-destructing.
@@ -36,7 +36,7 @@ public class StingerBullet : MonoBehaviour {
     {
         if (collision.gameObject.layer == 8)
         {
-            GameObject.Find("Player").GetComponent<Player>().TakeDamage(damage);
+            GameObject.Find("Player").GetComponent<Player>().TakeDamage(stingerDamage);
         }
     }
 
