@@ -234,10 +234,13 @@
     <Compile Include="Assets\Scripts\ButtonHover.cs" />
     <Compile Include="Assets\Scripts\DestroyProjectiles.cs" />
     <Compile Include="Assets\Scripts\DisplaysPlayerHP.cs" />
-    <Compile Include="Assets\Scripts\Enemy Scripts\ChomperBullet.cs" />
-    <Compile Include="Assets\Scripts\Enemy Scripts\ChomperClass.cs" />
-    <Compile Include="Assets\Scripts\Enemy Scripts\StingerBullet.cs" />
-    <Compile Include="Assets\Scripts\Enemy Scripts\StingerSuperClass.cs" />
+    <Compile Include="Assets\Scripts\Enemy Scripts\Chomper\ChomperBullet.cs" />
+    <Compile Include="Assets\Scripts\Enemy Scripts\Chomper\ChomperClass.cs" />
+    <Compile Include="Assets\Scripts\Enemy Scripts\EnemySpawn.cs" />
+    <Compile Include="Assets\Scripts\Enemy Scripts\Stinger\StingerBullet.cs" />
+    <Compile Include="Assets\Scripts\Enemy Scripts\Stinger\StingerSuperClass.cs" />
+    <Compile Include="Assets\Scripts\Enemy Scripts\Striker\StrikerClass.cs" />
+    <Compile Include="Assets\Scripts\Enemy Scripts\Striker\StrikerProjectile.cs" />
     <Compile Include="Assets\Scripts\EventSystem.cs" />
     <Compile Include="Assets\Scripts\GameOverMenu.cs" />
     <Compile Include="Assets\Scripts\GameOverMenuScript.cs" />
