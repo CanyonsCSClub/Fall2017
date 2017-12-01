@@ -9,17 +9,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DestroyProjectiles : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+public class DestroyProjectiles : MonoBehaviour
+{
+    private Vector3 playerPos;
+    private float playerX;
+    private float playerY;
+    private float playerZ; 
 
     private void OnCollisionEnter(Collision col)
     {
@@ -32,7 +27,5 @@ public class DestroyProjectiles : MonoBehaviour {
         {
             Destroy(col.gameObject);
         }
-
-
     }
 }
