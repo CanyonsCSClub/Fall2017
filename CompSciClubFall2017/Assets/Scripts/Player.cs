@@ -148,6 +148,14 @@ public class Player : MonoBehaviour {
 
     private void playerMovement()
     {
+        if(Input.GetKey("p"))
+        {
+            if (Time.timeScale == 0)
+            {
+                Time.timeScale = 1;
+            }
+            Time.timeScale = 0; 
+        }
         if(Input.GetKey("w")) // When w is pressed, move the player up.
         {
             player.transform.Translate(transform.up * Time.deltaTime * speed);
