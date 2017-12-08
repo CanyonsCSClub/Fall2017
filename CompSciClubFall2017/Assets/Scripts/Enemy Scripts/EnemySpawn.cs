@@ -41,7 +41,7 @@ public class EnemySpawn : MonoBehaviour {
         else if (randNum == 1 && Time.time > nextSpawn && countOfAllEnem < 5)
         {
             nextSpawn = Time.time + spawnRate;                                              // Sets nextSpawn to = a spawnRate worth of seconds later 
-            Instantiate(chomperEnemy, new Vector3(16, 5, 0), Quaternion.Euler(15, 5, 0));   // Spawns an Chomper
+            Instantiate(chomperEnemy, new Vector3(16, 5, 0), Quaternion.Euler(0, 0, 0));   // Spawns an Chomper
         }
     }
 }
