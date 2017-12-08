@@ -31,8 +31,10 @@ public class Player : MonoBehaviour {
     // public Text liveText; // Reference to live text
     // public Text gameOverText; // Reference to GameOver text
     public int playerHealth = 100; // We will use this for the player's health 
+    private float damRate = 0.5f;             // Spawn Rate. Pretty self explanitory 
+    private float nextDam;            // Used to see when the function should spawn the next prefab 
 
-    /* Code regarding player's shooting mechanics */ 
+    /* Code regarding player's shooting mechanics */
     public GameObject shot;         // We will use this to reference the player's projectile -- in-engine, we will populate this with our ""Bolt" prefab. 
     public Transform shotSpawn;     // We will use this to know where to spawn the shot. The location will be set to where the "ShotSpawn" GameObject is. We will do this by populating the Player with the ShotSpawn child object in-engine. 
     public float fireRate;          // The player's fire rate -- this will probably kept as 0 but... just in case. 
@@ -84,6 +86,7 @@ public class Player : MonoBehaviour {
         }
     }
 
+    // This function displays the damage being dealt 
     void OnCollisionEnter(Collision col)
     {
 
@@ -122,20 +125,26 @@ public class Player : MonoBehaviour {
             dam = 0; 
         }
 
-         
-
         // Damage the player
         if (damagePlayer)
         {
             Health playerHealth = this.GetComponent<Health>();
        
             // Damage the player if their health is not 0
-            if (playerHealth.hp != 0)
+            if (playerHealth.hp > 0 && dam == 5)
             {
                 playerHealth.Damage(dam, this.isEnemy); // Damage the player by x amount
 
                 Debug.Log("Current Health: " + playerHealth.hp);
                 setHealthandLiveText();
+            }
+            else if (playerHealth.hp > 0 && dam == 10 && Time.time > nextDam)
+            {
+                playerHealth.Damage(dam, this.isEnemy); // Damage the player by x amount
+
+                Debug.Log("Current Health: " + playerHealth.hp);
+                setHealthandLiveText();
+                nextDam = Time.time + damRate;
             }
         }
     }
@@ -147,7 +156,7 @@ public class Player : MonoBehaviour {
     }
 
     private void playerMovement()
-    {
+    {   
         if(Input.GetKey("w")) // When w is pressed, move the player up.
         {
             player.transform.Translate(transform.up * Time.deltaTime * speed);
@@ -183,7 +192,7 @@ public class Player : MonoBehaviour {
         {
             Debug.Log("Player is alive");
         }
-        else if(playerHealth < 0)
+        else if(playerHealth <= 0)
         {
             Debug.Log("Player is dead");
             // Time.timeScale = 0;             // Commented out to test the Game Over Scene 
@@ -201,6 +210,7 @@ public class Player : MonoBehaviour {
         }
     }
 
+    // This function actually does the damage 
     public void TakeDamage(int damage) // This function is called whenever an enemy bullet enters the player's collider.
     {
         playerHealth = playerHealth - damage; 

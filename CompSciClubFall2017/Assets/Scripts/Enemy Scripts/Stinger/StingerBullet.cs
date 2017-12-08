@@ -32,12 +32,20 @@ public class StingerBullet : MonoBehaviour {
     }
 
     /* Hunter Goodin was here */
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision col)
     {
-        if (collision.gameObject.layer == 8)
+        if (col.gameObject.layer == 8)
         {
             GameObject.Find("Player").GetComponent<Player>().TakeDamage(stingerDamage);
         }
+        else if (col.gameObject.tag == "Bolt(Clone)")
+        {
+            Destroy(col.gameObject);
+        }
+        else if (col.gameObject.name == "StingerBullet(Clone)")
+        {
+            Destroy(col.gameObject);
+        }
+        
     }
-
 }

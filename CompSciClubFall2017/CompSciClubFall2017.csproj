@@ -249,6 +249,7 @@
     <Compile Include="Assets\Scripts\MouseHover.cs" />
     <Compile Include="Assets\Scripts\OffsetScroller.cs" />
     <Compile Include="Assets\Scripts\OrbThingMover.cs" />
+    <Compile Include="Assets\Scripts\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\PointSystem.cs" />
   </ItemGroup>
