@@ -27,6 +27,7 @@ public class BoltMover : MonoBehaviour
     private void OnCollisionEnter(Collision col)
     {
         // Stinger 
+<<<<<<< HEAD
         if(col.gameObject.tag == "Stinger")
         {
             col.gameObject.GetComponent<StingerSuperClass>().takeDamage(damage);
@@ -35,6 +36,16 @@ public class BoltMover : MonoBehaviour
         else if (col.gameObject.tag == "Chomper")
         {
             col.gameObject.GetComponent<ChomperClass>().takeDamage(damage);
+=======
+        if(col.gameObject.tag == "Stinger")
+        {
+            col.gameObject.GetComponent<StingerSuperClass>().takeDamage(damage);
+        }
+        // Chomper 
+        else if (col.gameObject.tag == "Chomper")
+        {
+            col.gameObject.GetComponent<ChomperClass>().takeDamage(damage);
+>>>>>>> master
         }
         else if (col.gameObject.name == "StingerBullet(Clone)")
         {
