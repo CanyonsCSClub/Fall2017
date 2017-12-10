@@ -151,14 +151,6 @@ public class Player : MonoBehaviour {
 
     [System.Serializable]
     public class Boundary
-<<<<<<< HEAD
-    {
-        public float xMin, xMax, yMin, yMax;    // initializes these values 
-    }
-
-    private void playerMovement()
-=======
->>>>>>> master
     {
         public float xMin, xMax, yMin, yMax;    // initializes these values 
     }

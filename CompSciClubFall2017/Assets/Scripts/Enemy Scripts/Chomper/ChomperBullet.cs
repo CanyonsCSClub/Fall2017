@@ -14,18 +14,12 @@ public class ChomperBullet : MonoBehaviour {
     public int chomperDamage = 10; 
 
     private Rigidbody chomperBulletRigidbody; // Creating a variable to hold the Chomper rigidbody reference.
-<<<<<<< HEAD
-    private float lifetime = 2f; // Creating a float variable that holds the amount of seconds the object ChomperBullet exists for before self-destructing.
-
-	void Start()
-=======
     private float lifetime = 2f; // Creating a float variable that holds the amount of seconds the object ChomperBullet exists for before self-destructing. 
 
     private float damRate = 0.5f;             // Spawn Rate. Pretty self explanitory 
     private float nextDam;            // Used to see when the function should spawn the next prefab 
 
     void Start()
->>>>>>> master
     {
         chomperBulletRigidbody = GetComponent<Rigidbody>();
         Destroy(gameObject, lifetime); // Destroys this gameObject after two seconds.
@@ -36,27 +30,6 @@ public class ChomperBullet : MonoBehaviour {
         //chomperBulletRigidbody.transform.Translate(-transform.right * Time.deltaTime * speed);
     }
 
-<<<<<<< HEAD
-    private void OnTriggerEnter(Collider col)
-    {
-        if (col.gameObject.layer == 8)
-        {
-            if (col.gameObject.tag == "Stinger")
-            {
-                GameObject.Find("Player").GetComponent<Player>().TakeDamage(chomperDamage);
-            }
-            else if (col.gameObject.tag == "Bolt(Clone)")
-            {
-                Destroy(col.gameObject);
-            }
-            else if (col.gameObject.name == "StingerBullet(Clone)")
-            {
-                Destroy(col.gameObject);
-            }
-        }
-    }
-
-=======
     private void OnCollisionEnter(Collision col)
     {
         if (col.gameObject.layer == 8 && Time.time > nextDam)
@@ -73,5 +46,4 @@ public class ChomperBullet : MonoBehaviour {
             Destroy(col.gameObject);
         }
     }
->>>>>>> master
 }
