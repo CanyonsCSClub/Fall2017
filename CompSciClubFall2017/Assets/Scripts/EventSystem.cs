@@ -1,5 +1,8 @@
 ﻿/*
- * Programmer: Karim Dabboussi
+ * Programmer: Karim Dabboussi & Spencer Wilson
+ * Date Initially Modified: 12/10/2017 @ 8:39 pm
+ * Date Last Modified: 12/10/2017 @ 8:39 pm
+ * Project: CompSciClubFall2017
  * File Name: EventSystem.cs
  * Description: This file has the code for the event system
  * 

@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114601702335849020}
   m_Layer: 0
   m_Name: Striker
-  m_TagString: Untagged
+  m_TagString: Striker
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -141,6 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 1840037827335446, guid: fdbfaa61251c89e438301b512bf97133, type: 2}
+  health: 400
 --- !u!136 &136519237709899710
 CapsuleCollider:
   m_ObjectHideFlags: 1

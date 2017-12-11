@@ -1,6 +1,9 @@
 ﻿/*
- * Programmer: Karim Dabboussi & Hunter Goodin 
- * File Name: PointSystem.cs
+ * Programmer: Karim Dabboussi, Hunter Goodin, Spencer Wilson
+ * Date Initially Modified: 12/10/2017 @ 9:28 pm
+ * Date Modified: 12/10/2017 @ 9:29 pm
+ * Project: CompSciClubFall2017
+ * File: PointSystem.cs
  * Description: This file has the code for the point system
  * 
  */
@@ -17,10 +20,6 @@ public class PointSystem : MonoBehaviour {
     public float scoreTimer;
     public float scoreDelayTimer = 0.5f;
     public int point = 0;
-    const int ENEMY1 = 100; //possible values for later
-    const int ENEMY2 = 100; //possible values for later
-    const int BOSS1 = 1000; //possible values for later
-    const int BOSS2 = 2000; //possible values for later
     // Use this for initialization
     void Start ()
     {

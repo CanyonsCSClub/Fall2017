@@ -2,7 +2,7 @@
  * 
  * Author: Spencer Wilson
  * Date Created: 11/24/2017 @ 9:44 pm
- * Date Modified: 11/24/2017 @ 9:46 pm
+ * Date Modified: 12/10/2017 @ 9:27 pm
  * Project: CompSciClubFall2017
  * File: StrikerProjectile.cs 
  * 
@@ -38,5 +38,13 @@ public class StrikerProjectile : MonoBehaviour
     private void StrikerProjMovement()
     {
         transform.position = Vector3.MoveTowards(strikerProjGameObj.transform.position, playerGameObj.transform.position, Time.deltaTime * speed);
+    }
+
+    private void OnCollsionEnter(Collision col)
+    {
+        if (col.gameObject.layer == 8)
+        {
+            playerGameObj.GetComponent<Player>().TakeDamage(1);
+        }
     }
 }

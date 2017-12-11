@@ -2,7 +2,7 @@
  * 
  * Author: Spencer Wilson
  * Date Created: 11/24/2017 @ 8:28 pm
- * Date Modified: 11/24/2017 @ 8:29 pm
+ * Date Modified: 12/10/2017 @ 9:27 pm
  * Project: CompSciClubFall2017
  * File: Player.cs
  * Description: File that houses all of the code for the Striker enemy. 
@@ -23,7 +23,7 @@ public class StrikerClass : MonoBehaviour {
     private bool attackedAlready; // Holds a true/false variable that represents whether or not the Striker attacked already before his teleportation or not.
     private float timeT = 0f;
 
-    private int health = 400; // Initializes the Striker's health to be 10.
+    public int health = 400; // Initializes the Striker's health to be 10.
     private int speed = 40;
     private Rigidbody strikerRb; // Creating a private Rigidbody variable that houses the striker's rigidbody.
     private Vector3 initialPos; // Creating a private Vector3 variable named initialPos that will hold the Vector3 coordinates of the striker's location.
@@ -70,7 +70,7 @@ public class StrikerClass : MonoBehaviour {
     private void StrikerWeapons() // Function houses the striker's weapons.
     {
         Instantiate(projectile, transform.position, transform.rotation);
-        Instantiate(projectile, transform.position, transform.rotation);
+        //Instantiate(projectile, transform.position, transform.rotation);
     }
 
     private void IsAlive() // Function checks if the Striker is alive or not.
