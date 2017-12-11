@@ -21,7 +21,7 @@ public class ChomperClass : MonoBehaviour
     private Vector3 playerPos;
     private Vector3 newPos;
 
-    public int scoreValue = 100; // We will use this to incriment the points 
+    public int scoreValue = 100; // We will use this to increment the points 
 
     public Transform shotSpawn; 
     private float fireRate = 5f;

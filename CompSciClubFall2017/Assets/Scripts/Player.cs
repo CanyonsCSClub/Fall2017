@@ -120,6 +120,15 @@ public class Player : MonoBehaviour {
             }
             dam = 10;
         }
+        else if(col.gameObject.name == "StrikerProjectile(Clone)")
+        {
+            StrikerProjectile enemy = col.gameObject.GetComponent<StrikerProjectile>();
+            if (enemy != null)
+            {
+                damagePlayer = true;
+            }
+            dam = 1;
+        }
         else
         {
             dam = 0; 

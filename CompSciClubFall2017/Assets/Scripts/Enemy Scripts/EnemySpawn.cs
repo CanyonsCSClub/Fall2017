@@ -2,7 +2,7 @@
  * 
  * Author: Spencer Wilson & Hunter Goodin
  * Date Created: 11/26/2017 @ 3:30 pm
- * Date Modified: 11/26/2017 @ 11:36 pm by Hunter Goodin 
+ * Date Modified: 12/10/2017 @ 7:16 pm
  * Project: CompSciClubFall2017
  * File: EnemySpawn.cs
  * Description: This file contains the code that allows the enemy to spawn in the player space.
@@ -15,7 +15,7 @@ using UnityEngine;
 
 public class EnemySpawn : MonoBehaviour {
 
-    public GameObject stingerEnemy;     // Populated with the Stinger prefab in-engine 
+    public GameObject stingerEnemy; // Populated with the Stinger prefab through file directory.
     public GameObject chomperEnemy;     // Populated with the Chomper prefab in-engine 
     public float spawnRate;             // Spawn Rate. Pretty self explanitory 
     private float nextSpawn;            // Used to see when the function should spawn the next prefab 
@@ -23,8 +23,14 @@ public class EnemySpawn : MonoBehaviour {
     private int countOfStinger;         // Used to know how many Stingers there are on the map 
     private int countOfChomper;         // Used to know how many Chompers there are on the map 
     private int countOfAllEnem;         // Used to know how many enemies in total there are on the map 
-   
-	
+
+    void Start()
+    {
+        spawnRate = 1;
+        stingerEnemy = (GameObject)Resources.Load("Prefabs/Enemies/Stinger");
+        chomperEnemy = (GameObject)Resources.Load("Prefabs/Enemies/Chomper");
+
+    }
 	// Update is called once per frame
 	void Update ()
     {

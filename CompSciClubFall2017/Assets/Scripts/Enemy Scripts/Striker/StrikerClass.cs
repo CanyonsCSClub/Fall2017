@@ -77,8 +77,8 @@ public class StrikerClass : MonoBehaviour {
     {
         if (health < 0)
         {
-            Time.timeScale = 0;
-            Debug.Log("Tracker is dead.");
+            GameObject.Find("DisplayPoints").GetComponent<PointSystem>().UpdateScore(1000);
+            Debug.Log("Striker is dead.");
         }
     }
 

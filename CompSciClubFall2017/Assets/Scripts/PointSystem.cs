@@ -49,29 +49,9 @@ public class PointSystem : MonoBehaviour {
         point = point + ptInc;
         scoreText.text = point.ToString();
     }
-
-    public void checkEvent(int point) {
-        if (point >= 10000 && point <= 10500) //optimization needed so boss does not appear multiple times
-        {
-            Debug.Log("The First Boss Appears"); // work in progress, plan to have boss events, and text that appears
-        }
-
-        else if (point >= 20000 && point <= 20500)
-        {
-            Debug.Log("The Second Boss Appears"); // work in progress, plan to have boss events, and text that appears
-        }
-        else if (point >= 30000 && point <= 30500)
-        {
-            Debug.Log("The Third Boss Appears"); // work in progress, plan to have boss events, and text that appears
-        }
-        else if (point >= 40000 && point <= 40500)
-        {
-            Debug.Log("The Fourth Boss Appears"); // work in progress, plan to have boss events, and text that appears
-        }
-        else if (point >= 50000 && point <= 50500)
-        {
-            Debug.Log("The Fifth Boss Appears"); // work in progress, plan to have boss events, and text that appears
-        }
-
+    
+    public int getPoint()
+    {
+        return point;
     }
 }
