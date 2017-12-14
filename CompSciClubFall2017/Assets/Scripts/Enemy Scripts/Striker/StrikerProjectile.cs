@@ -18,8 +18,9 @@ public class StrikerProjectile : MonoBehaviour
     private GameObject playerGameObj;
     private Vector3 newPos;
     private Vector3 finalPos;
-    private float speed = 5f; // Private float variable named speed that holds the StrikerProjectile's speed.
-    private float lifetime = 5f; // Private float variable named lifetime that holds the projectile's lifetime.
+    private const float speed = 10f; // Private float variable named speed that holds the StrikerProjectile's speed.
+    private const float lifetime = 5f; // Private float variable named lifetime that holds the projectile's lifetime.
+
     //private Rigidbody strikerPRb;
     // Use this for initialization
     void Start()
@@ -40,11 +41,11 @@ public class StrikerProjectile : MonoBehaviour
         transform.position = Vector3.MoveTowards(strikerProjGameObj.transform.position, playerGameObj.transform.position, Time.deltaTime * speed);
     }
 
-    private void OnCollsionEnter(Collision col)
+    private void OnCollisionEnter(Collision col)
     {
-        if (col.gameObject.layer == 8)
+        if (col.gameObject.tag == "Player")
         {
-            playerGameObj.GetComponent<Player>().TakeDamage(1);
+            col.gameObject.GetComponent<Player>().TakeDamage(1);
         }
     }
 }

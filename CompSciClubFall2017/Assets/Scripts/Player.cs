@@ -222,7 +222,7 @@ public class Player : MonoBehaviour {
     // This function actually does the damage 
     public void TakeDamage(int damage) // This function is called whenever an enemy bullet enters the player's collider.
     {
-        playerHealth = playerHealth - damage; 
+        playerHealth -= damage; 
     }
 
 }

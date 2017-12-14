@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 30
-  stingerDamage: 5
+  stingerDamage: 1
 --- !u!136 &136328469431150206
 CapsuleCollider:
   m_ObjectHideFlags: 1

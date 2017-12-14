@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: 4218048565106428}
   - component: {fileID: 54890238860424984}
   - component: {fileID: 114039989271075630}
+  - component: {fileID: 135136175156223864}
+  - component: {fileID: 135289372509908594}
   m_Layer: 0
   m_Name: Striker Projectile
   m_TagString: Untagged
@@ -140,6 +142,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 694539b48b2c56644ab8095463c1dfda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!135 &135136175156223864
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1840037827335446}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!135 &135289372509908594
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1840037827335446}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!135 &135476407242811716
 SphereCollider:
   m_ObjectHideFlags: 1

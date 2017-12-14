@@ -305,10 +305,10 @@ MonoBehaviour:
   m_DepthBufferBits: 32
   m_Pos:
     serializedVersion: 2
-    x: 206
-    y: 92
-    width: 1210
-    height: 573
+    x: 285
+    y: 100
+    width: 1127
+    height: 563
   m_MaximizeOnPlay: 0
   m_Gizmos: 0
   m_Stats: 0
@@ -317,10 +317,10 @@ MonoBehaviour:
   m_ZoomArea:
     m_HRangeLocked: 0
     m_VRangeLocked: 0
-    m_HBaseRangeMin: -494.22223
-    m_HBaseRangeMax: 494.22223
-    m_VBaseRangeMin: -278
-    m_VBaseRangeMax: 278
+    m_HBaseRangeMin: -485.33334
+    m_HBaseRangeMax: 485.33334
+    m_VBaseRangeMin: -273
+    m_VBaseRangeMax: 273
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -337,25 +337,25 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 17
-      width: 1210
-      height: 556
+      width: 1127
+      height: 546
     m_Scale: {x: 1, y: 1}
-    m_Translation: {x: 605, y: 278}
+    m_Translation: {x: 563.5, y: 273}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -605
-      y: -278
-      width: 1210
-      height: 556
+      x: -563.5
+      y: -273
+      width: 1127
+      height: 546
     m_MinimalGUI: 1
   m_defaultScale: 1
   m_TargetTexture: {fileID: 0}
   m_CurrentColorSpace: 0
-  m_LastWindowPixelSize: {x: 1210, y: 573}
+  m_LastWindowPixelSize: {x: 1127, y: 563}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000100000100
@@ -387,9 +387,9 @@ MonoBehaviour:
     height: 573
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 2a080000
+    m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: a6fbffff00000000
+    m_ExpandedIDs: 70cdebff0818edff7e2aedffa42aedfffe3ff1ff1672f2ff720ef9ff58d5fdffae29feffa6fbffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -444,9 +444,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -3.0802891, y: -14.63209, z: 28.912945}
+    m_Target: {x: -9.277382, y: -3.1485014, z: 37.023453}
     speed: 2
-    m_Value: {x: -3.0802891, y: -14.63209, z: 28.912945}
+    m_Value: {x: -9.277382, y: -3.1485014, z: 37.023453}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -469,13 +469,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: 0.26094022, y: 0.005790794, z: -0.0015654276, w: 0.9653363}
+    m_Target: {x: -0.07536124, y: 0.06517427, z: -0.0049361866, w: -0.9950119}
     speed: 2
-    m_Value: {x: -0.26094022, y: -0.005790794, z: 0.0015654276, w: -0.9653364}
+    m_Value: {x: -0.07536124, y: 0.06517427, z: -0.0049361866, w: -0.9950119}
   m_Size:
-    m_Target: 59.368576
+    m_Target: 56.526436
     speed: 2
-    m_Value: 59.368576
+    m_Value: 56.526436
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -525,18 +525,18 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Scripts
+    - Assets/Resources/Prefabs
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/Resources/Prefabs
   m_LastFoldersGridSize: -1
   m_LastProjectPath: M:\Development\Projects\Computer Science Club\Fall2017\CompSciClubFall2017
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 57}
-    m_SelectedIDs: 7e280000
-    m_LastClickedID: 10366
+    m_SelectedIDs: 70280000
+    m_LastClickedID: 10352
     m_ExpandedIDs: 000000005227000010280000702800007e28000092280000e6280000042a000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -642,10 +642,10 @@ MonoBehaviour:
   m_DepthBufferBits: 0
   m_Pos:
     serializedVersion: 2
-    x: 0
-    y: 686
-    width: 1416
-    height: 332
+    x: 8
+    y: 684
+    width: 1404
+    height: 326
 --- !u!114 &18
 MonoBehaviour:
   m_ObjectHideFlags: 52

@@ -10,7 +10,7 @@ using UnityEngine;
 
 public class ChomperBullet : MonoBehaviour {
 
-    public float speed;
+    public const float speed = 5f;
     public int chomperDamage = 10; 
 
     private Rigidbody chomperBulletRigidbody; // Creating a variable to hold the Chomper rigidbody reference.
@@ -19,15 +19,22 @@ public class ChomperBullet : MonoBehaviour {
     private float damRate = 0.5f;             // Spawn Rate. Pretty self explanitory 
     private float nextDam;            // Used to see when the function should spawn the next prefab 
 
+    private GameObject player;
+    private Vector3 newPos;
+    private Vector3 currPos;
+
     void Start()
     {
+        player = GameObject.Find("Player");
         chomperBulletRigidbody = GetComponent<Rigidbody>();
         Destroy(gameObject, lifetime); // Destroys this gameObject after two seconds.
 	}
 
-    public void FixedUpdate()
+    public void FixedUpdate() // Serves to track the Chomper's lazer beam's movement.
     {
-        //chomperBulletRigidbody.transform.Translate(-transform.right * Time.deltaTime * speed);
+        currPos = transform.position;
+        newPos = new Vector3(transform.position.x, player.transform.position.y, transform.position.z);
+        transform.position = Vector3.MoveTowards(transform.position, newPos, Time.deltaTime * speed);
     }
 
     private void OnCollisionEnter(Collision col)

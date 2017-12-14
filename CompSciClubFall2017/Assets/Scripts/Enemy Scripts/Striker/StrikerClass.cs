@@ -70,7 +70,7 @@ public class StrikerClass : MonoBehaviour {
     private void StrikerWeapons() // Function houses the striker's weapons.
     {
         Instantiate(projectile, transform.position, transform.rotation);
-        //Instantiate(projectile, transform.position, transform.rotation);
+        Instantiate(projectile, transform.position, transform.rotation);
     }
 
     private void IsAlive() // Function checks if the Striker is alive or not.
