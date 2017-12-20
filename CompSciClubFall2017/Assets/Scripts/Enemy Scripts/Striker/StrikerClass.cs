@@ -2,9 +2,9 @@
  * 
  * Author: Spencer Wilson
  * Date Created: 11/24/2017 @ 8:28 pm
- * Date Modified: 12/10/2017 @ 9:27 pm
+ * Date Modified: 12/19/2017 @ 5:13 pm
  * Project: CompSciClubFall2017
- * File: Player.cs
+ * File: Striker.cs
  * Description: File that houses all of the code for the Striker enemy. 
  * 
  */
@@ -21,7 +21,7 @@ public class StrikerClass : MonoBehaviour {
     public GameObject projectile; // Acts at the first projectile that spawns in.
 
     private bool attackedAlready; // Holds a true/false variable that represents whether or not the Striker attacked already before his teleportation or not.
-    private float timeT = 0f;
+    private bool attacking; // Bool that holds a true or false value whether or not the Striker is attacking or not.
 
     public int health = 400; // Initializes the Striker's health to be 10.
     private int speed = 40;
@@ -34,6 +34,7 @@ public class StrikerClass : MonoBehaviour {
 
     private void Start()
     {
+        attacking = false; // Striker initially starts off by not attacking the player.
         strikerGameObject = gameObject; // Assigns strikerGameObject the reference to the gameobject that the script is attached to.
         playerGameObject = GameObject.Find("Player");
         strikerRb = GetComponent<Rigidbody>(); // Get's the Rigidbody of the current gameObject it is attached to and references it in strikerRb.
@@ -42,35 +43,26 @@ public class StrikerClass : MonoBehaviour {
     // Update is called once per frame
     private void Update()
     {
-        StrikerWeapons();
+        IsAlive(); // Checks every frame to see if Striker is still alive.
     }
 
     private void FixedUpdate()
     {
-        StrikerMovement();
+        StrikerBehavior(); // Calls upon the StrikerBehavior() function every frame to update the Striker's behavior.
     }
 
-    private void StrikerMovement() // This function houses the code for the Striker's movment. The Striker moves in a sine pattern and teleports.
+    private void StrikerBehavior() // This function houses the code for the Striker's movment. The Striker moves in a sine pattern and teleports.
     {
-        float newPosY; // Creating a local float variable named newPosY that holds the Striker's y-position.
-
-        if (timeT <= 1f)
+        if(attacking == true) // While Striker is attacking.
         {
-            timeT += Time.deltaTime;
-            newPosY = Mathf.Sin(0.2f * (Time.time) * speed);
-            strikerRb.velocity = new Vector3(0, newPosY, 0);
+            // Basic jist
+            Instantiate(projectile, transform.position, transform.rotation);
+            Instantiate(projectile, transform.position, transform.rotation);
         }
-        else// If timeToMove is equal to true, teleport the Striker to the player's current y position.
+        else if (attacking == false) // While Striker is not attacking.
         {
-            timeT = 0;
-            transform.position = new Vector3(transform.position.x, playerGameObject.transform.position.y, transform.position.z);
-        }
-    }
 
-    private void StrikerWeapons() // Function houses the striker's weapons.
-    {
-        Instantiate(projectile, transform.position, transform.rotation);
-        Instantiate(projectile, transform.position, transform.rotation);
+        }
     }
 
     private void IsAlive() // Function checks if the Striker is alive or not.
@@ -78,6 +70,7 @@ public class StrikerClass : MonoBehaviour {
         if (health < 0)
         {
             GameObject.Find("DisplayPoints").GetComponent<PointSystem>().UpdateScore(1000);
+            GameObject.Destroy(gameObject); // Destorys the Striker boss when it's health goes below zero.
             Debug.Log("Striker is dead.");
         }
     }
