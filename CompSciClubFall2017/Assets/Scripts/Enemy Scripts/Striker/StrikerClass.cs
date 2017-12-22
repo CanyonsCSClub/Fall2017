@@ -17,13 +17,18 @@ public class StrikerClass : MonoBehaviour {
 
     private GameObject strikerGameObject; // Creating a private GameObject variable named strikerGameObject to hold the current gameobject reference.
     private GameObject playerGameObject; // Holds the reference to the player game object.
+    private GameObject shotSpawn; // Holds the location of where the Striker's projectiles spawn.
 
     public GameObject projectile; // Acts at the first projectile that spawns in.
+
+    private float timeElapsedBehavior; // Holds the time that has elapsed since the last behavior change.
+    private float timeElapsedTeleport; // Holds the time that has elapsed since the Striker last teleported.
+    private float timeElapsedShot; // Holds the time that has elapsed since the Striker last shot.
 
     private bool attackedAlready; // Holds a true/false variable that represents whether or not the Striker attacked already before his teleportation or not.
     private bool attacking; // Bool that holds a true or false value whether or not the Striker is attacking or not.
 
-    public int health = 400; // Initializes the Striker's health to be 10.
+    public int health = 50; // Initializes the Striker's health to be 50.
     private int speed = 40;
     private Rigidbody strikerRb; // Creating a private Rigidbody variable that houses the striker's rigidbody.
     private Vector3 initialPos; // Creating a private Vector3 variable named initialPos that will hold the Vector3 coordinates of the striker's location.
@@ -35,9 +40,10 @@ public class StrikerClass : MonoBehaviour {
     private void Start()
     {
         attacking = false; // Striker initially starts off by not attacking the player.
-        strikerGameObject = gameObject; // Assigns strikerGameObject the reference to the gameobject that the script is attached to.
-        playerGameObject = GameObject.Find("Player");
-        strikerRb = GetComponent<Rigidbody>(); // Get's the Rigidbody of the current gameObject it is attached to and references it in strikerRb.
+        strikerGameObject = gameObject; // Assigns strikerGameObject the reference to the game object that the script is attached to.
+        playerGameObject = GameObject.Find("Player"); // Assigns the Player game object to the reference playerGameObject.
+        shotSpawn = strikerGameObject.transform.GetChild(1).gameObject; // Assigns shotSpawn the reference of the shotSpawn child of the game object Striker.
+        strikerRb = GetComponent<Rigidbody>(); // Get's the Rigidbody of the current game object it is attached to and references it in strikerRb.
     }
 
     // Update is called once per frame
@@ -53,13 +59,67 @@ public class StrikerClass : MonoBehaviour {
 
     private void StrikerBehavior() // This function houses the code for the Striker's movment. The Striker moves in a sine pattern and teleports.
     {
-        if(attacking == true) // While Striker is attacking.
+
+
+        // Stage 1: FIRST STAGE
+        if (health <= 50 && health > 30)
         {
-            // Basic jist
-            Instantiate(projectile, transform.position, transform.rotation);
-            Instantiate(projectile, transform.position, transform.rotation);
+            if (attacking == true) // While Striker is attacking.
+            {
+                if (timeElapsedBehavior <= 5) // While the time that has elapsed (variable timeElapsedBehavior) since the Striker's last mood swing is less than 5 seconds.
+                {
+                    timeElapsedBehavior += Time.unscaledDeltaTime; // Increment timeElapsedBehavior by the number of seconds that have passed since the last frame to the current one.
+                    if (timeElapsedShot >= 1) // When the time that has elapsed since the Striker last shot is greater than or equal to one.
+                    {
+                        transform.position = new Vector3(10f, playerGameObject.transform.position.y, 0f); // Teleports to the player's current y-axis coordinate. This is a sort of teleport and following of the player.
+                        Instantiate(projectile, shotSpawn.transform.position, transform.rotation); // Instantiating Striker projectile.
+                        Instantiate(projectile, shotSpawn.transform.position, transform.rotation); // Instantiating Striker projectile.
+                        Instantiate(projectile, shotSpawn.transform.position, transform.rotation); // Instantiating Striker projectile.
+                        Instantiate(projectile, shotSpawn.transform.position, transform.rotation); // Instantiating Striker projectile.
+                        Instantiate(projectile, shotSpawn.transform.position, transform.rotation); // Instantiating Striker projectile.
+                        Instantiate(projectile, shotSpawn.transform.position, transform.rotation); // Instantiating Striker projectile.
+                        Instantiate(projectile, shotSpawn.transform.position, transform.rotation); // Instantiating Striker projectile.
+                        Instantiate(projectile, shotSpawn.transform.position, transform.rotation); // Instantiating Striker projectile.
+                        Instantiate(projectile, shotSpawn.transform.position, transform.rotation); // Instantiating Striker projectile.
+                        Instantiate(projectile, shotSpawn.transform.position, transform.rotation); // Instantiating Striker projectile.
+                        timeElapsedShot = 0f; // Reset the timer for timeElapsedShot back to zero seconds.
+                    }
+                    else
+                    {
+                        timeElapsedShot += Time.unscaledDeltaTime;
+                    }
+                }
+                else
+                {
+                    timeElapsedBehavior = 0f; // Resets the timeElapsedBehavior back to zero as the Striker switches from offensive to defensive.
+                    attacking = false; // Striker's attack run is now over. Striker is on the defensive.
+                }
+            }
+            else if (attacking == false) // While Striker is not attacking.
+            {
+                if (timeElapsedBehavior <= 10f) // While the time (timeElapsedBehavior) that has elapsed since the Striker's last behavior change is less than 10 seconds.
+                {
+                    timeElapsedBehavior += Time.unscaledDeltaTime; // Increment timeElapsedBehavior by the number of seconds that have passed since the last frame to the current one.
+                    if(timeElapsedTeleport >= 0.5f) // If the time elapsed since the Striker last teleported is greater than 0.5 seconds.
+                    {
+                        transform.position = new Vector3(10f, Random.Range(-11, 8f), 0f);
+                        timeElapsedTeleport = 0f; // Resets the time elapsed since the Striker last teleported to zero.
+                    }
+                    else
+                    {
+                        timeElapsedTeleport += Time.unscaledDeltaTime; // Increments the timeElapsedTeleport by the number number of seconds that has passed since the last frame and the current one.
+                    }
+
+                }
+                else
+                {
+                    timeElapsedBehavior = 0f; // Resets the timeElapsedBehavior to zero as the Striker switches from defensive to offensive.
+                    attacking = true; // Changes attacking to true, Striker is now on the offensive.
+                }
+            }
         }
-        else if (attacking == false) // While Striker is not attacking.
+        // Stage 2: MIDDLE STAGE
+        else if(health <= 200 && health > 100)
         {
 
         }
