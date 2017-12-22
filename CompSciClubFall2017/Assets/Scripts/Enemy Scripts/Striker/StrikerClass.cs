@@ -2,7 +2,7 @@
  * 
  * Author: Spencer Wilson
  * Date Created: 11/24/2017 @ 8:28 pm
- * Date Modified: 12/19/2017 @ 5:13 pm
+ * Date Modified: 12/21/2017 @ 5:17 pm
  * Project: CompSciClubFall2017
  * File: Striker.cs
  * Description: File that houses all of the code for the Striker enemy. 
@@ -119,7 +119,12 @@ public class StrikerClass : MonoBehaviour {
             }
         }
         // Stage 2: MIDDLE STAGE
-        else if(health <= 200 && health > 100)
+        else if(health <= 30 && health > 15)
+        {
+
+        }
+        // Stage 3: FINAL STAGE
+        else if(health <= 15 && health > 0)
         {
 
         }
@@ -130,8 +135,16 @@ public class StrikerClass : MonoBehaviour {
         if (health < 0)
         {
             GameObject.Find("DisplayPoints").GetComponent<PointSystem>().UpdateScore(1000);
-            GameObject.Destroy(gameObject); // Destorys the Striker boss when it's health goes below zero.
+            GameObject.Destroy(gameObject); // Destroys the Striker boss when it's health goes below zero.
             Debug.Log("Striker is dead.");
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision) // Checks for collisions.
+    {
+        if(collision.gameObject.name == "Bolt(Clone)") // If the incoming game object that collides with the Striker has the name of Bolt(Clone).
+        {
+            Destroy(collision.gameObject); // Destroy the bolt.
         }
     }
 

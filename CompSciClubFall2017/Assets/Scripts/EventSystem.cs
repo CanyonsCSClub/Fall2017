@@ -31,12 +31,12 @@ public class EventSystem : MonoBehaviour {
 
     public void checkEvent(int point)
     {
-        if (point < 200 && count == 0) //optimization needed so boss does not appear multiple times
+        if (point < 10000 && count == 0) //optimization needed so boss does not appear multiple times
         {
             gameObject.AddComponent<EnemySpawn>();
             count++;
         }
-        else if ((point >= 200) && (point < 210) && (count == 1))
+        else if ((point >= 10100) && (point < 11100) && (count == 1))
         {
             Destroy(gameObject.GetComponent<EnemySpawn>());
             Instantiate(boss1);
