@@ -1,5 +1,5 @@
 ﻿ /* 
- * Programmer:	Hunter Goodin 
+ * Programmer:	Hunter Goodin
  * Date:		11/24/2017 
  * Project: 	CompSciClubFall2017
  * Description: The Chomper Enemy's projectiles class. 
@@ -14,7 +14,7 @@ public class ChomperBullet : MonoBehaviour {
     public int chomperDamage = 10; 
 
     private Rigidbody chomperBulletRigidbody; // Creating a variable to hold the Chomper rigidbody reference.
-    private float lifetime = 2f; // Creating a float variable that holds the amount of seconds the object ChomperBullet exists for before self-destructing. 
+    private float lifetime = 0.5f; // Creating a float variable that holds the amount of seconds the object ChomperBullet exists for before self-destructing. 
 
     private float damRate = 0.5f;             // Spawn Rate. Pretty self explanitory 
     private float nextDam;            // Used to see when the function should spawn the next prefab 

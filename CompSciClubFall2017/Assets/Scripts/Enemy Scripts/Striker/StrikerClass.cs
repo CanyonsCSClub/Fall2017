@@ -28,7 +28,7 @@ public class StrikerClass : MonoBehaviour {
     private bool attackedAlready; // Holds a true/false variable that represents whether or not the Striker attacked already before his teleportation or not.
     private bool attacking; // Bool that holds a true or false value whether or not the Striker is attacking or not.
 
-    public int health = 50; // Initializes the Striker's health to be 50.
+    public int health = 20; // Initializes the Striker's health to be 50.
     private int speed = 40;
     private Rigidbody strikerRb; // Creating a private Rigidbody variable that houses the striker's rigidbody.
     private Vector3 initialPos; // Creating a private Vector3 variable named initialPos that will hold the Vector3 coordinates of the striker's location.
@@ -39,6 +39,7 @@ public class StrikerClass : MonoBehaviour {
 
     private void Start()
     {
+        health = 20; // Initializing the Striker's health to be 10;
         attacking = false; // Striker initially starts off by not attacking the player.
         strikerGameObject = gameObject; // Assigns strikerGameObject the reference to the game object that the script is attached to.
         playerGameObject = GameObject.Find("Player"); // Assigns the Player game object to the reference playerGameObject.
@@ -59,10 +60,7 @@ public class StrikerClass : MonoBehaviour {
 
     private void StrikerBehavior() // This function houses the code for the Striker's movment. The Striker moves in a sine pattern and teleports.
     {
-
-
-        // Stage 1: FIRST STAGE
-        if (health <= 50 && health > 30)
+        if (health <= 20 && health > 0)
         {
             if (attacking == true) // While Striker is attacking.
             {
@@ -118,16 +116,16 @@ public class StrikerClass : MonoBehaviour {
                 }
             }
         }
-        // Stage 2: MIDDLE STAGE
-        else if(health <= 30 && health > 15)
-        {
+        //// Stage 2: MIDDLE STAGE
+        //else if(health <= 30 && health > 15)
+        //{
 
-        }
-        // Stage 3: FINAL STAGE
-        else if(health <= 15 && health > 0)
-        {
+        //}
+        //// Stage 3: FINAL STAGE
+        //else if(health <= 15 && health > 0)
+        //{
 
-        }
+        //}
     }
 
     private void IsAlive() // Function checks if the Striker is alive or not.
