@@ -1,0 +1,246 @@
+fileFormatVersion: 2
+guid: a6087162b1f0f454bb15e55cfcbd8968
+timeCreated: 1514152382
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: group
+    100002: group1
+    100004: pasted__pTorus1
+    100006: pasted__pTorus2
+    100008: pasted__pTorus3
+    100010: pasted__pTorus4
+    100012: pasted__pTorus5
+    100014: pasted__transform1
+    100016: pasted__transform2
+    100018: pasted__transform3
+    100020: pasted__transform4
+    100022: pasted__transform5
+    100024: polySurface10
+    100026: polySurface10 1
+    100028: polySurface11
+    100030: polySurface11 1
+    100032: polySurface12
+    100034: polySurface12 1
+    100036: polySurface13
+    100038: polySurface5
+    100040: polySurface6
+    100042: polySurface7
+    100044: polySurface8
+    100046: polySurface9
+    100048: polySurface9 1
+    100050: pSphere1
+    100052: pTorus1
+    100054: pTorus10
+    100056: pTorus11
+    100058: pTorus12
+    100060: pTorus13
+    100062: pTorus14
+    100064: pTorus2
+    100066: pTorus3
+    100068: pTorus4
+    100070: pTorus5
+    100072: pTorus6
+    100074: pTorus7
+    100076: pTorus8
+    100078: pTorus9
+    100080: //RootNode
+    100082: transform1
+    100084: transform10
+    100086: transform11
+    100088: transform12
+    100090: transform13
+    100092: transform14
+    100094: transform15
+    100096: transform16
+    100098: transform17
+    100100: transform18
+    100102: transform19
+    100104: transform2
+    100106: transform20
+    100108: transform21
+    100110: transform22
+    100112: transform23
+    100114: transform24
+    100116: transform25
+    100118: transform26
+    100120: transform3
+    100122: transform4
+    100124: transform5
+    100126: transform6
+    100128: transform7
+    100130: transform8
+    100132: transform9
+    400000: group
+    400002: group1
+    400004: pasted__pTorus1
+    400006: pasted__pTorus2
+    400008: pasted__pTorus3
+    400010: pasted__pTorus4
+    400012: pasted__pTorus5
+    400014: pasted__transform1
+    400016: pasted__transform2
+    400018: pasted__transform3
+    400020: pasted__transform4
+    400022: pasted__transform5
+    400024: polySurface10
+    400026: polySurface10 1
+    400028: polySurface11
+    400030: polySurface11 1
+    400032: polySurface12
+    400034: polySurface12 1
+    400036: polySurface13
+    400038: polySurface5
+    400040: polySurface6
+    400042: polySurface7
+    400044: polySurface8
+    400046: polySurface9
+    400048: polySurface9 1
+    400050: pSphere1
+    400052: pTorus1
+    400054: pTorus10
+    400056: pTorus11
+    400058: pTorus12
+    400060: pTorus13
+    400062: pTorus14
+    400064: pTorus2
+    400066: pTorus3
+    400068: pTorus4
+    400070: pTorus5
+    400072: pTorus6
+    400074: pTorus7
+    400076: pTorus8
+    400078: pTorus9
+    400080: //RootNode
+    400082: transform1
+    400084: transform10
+    400086: transform11
+    400088: transform12
+    400090: transform13
+    400092: transform14
+    400094: transform15
+    400096: transform16
+    400098: transform17
+    400100: transform18
+    400102: transform19
+    400104: transform2
+    400106: transform20
+    400108: transform21
+    400110: transform22
+    400112: transform23
+    400114: transform24
+    400116: transform25
+    400118: transform26
+    400120: transform3
+    400122: transform4
+    400124: transform5
+    400126: transform6
+    400128: transform7
+    400130: transform8
+    400132: transform9
+    2300000: polySurface13
+    2300002: pSphere1
+    3300000: polySurface13
+    3300002: pSphere1
+    4300000: pSphere1
+    4300002: polySurface13
+    9500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pasted__lambertAlmostBlack
+    second: {fileID: 2100000, guid: 4f3964be253015545b3f83c99e3fe65d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pasted__lambertGrey
+    second: {fileID: 2100000, guid: d2ff8cf1d1c44d749b81dc873ea1b1c3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pasted__lambertRed
+    second: {fileID: 2100000, guid: 30e6b0e8d7b6ef847b184c28fc5989d9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pasted__pasted__phong1
+    second: {fileID: 2100000, guid: f5f7a5619ca94984c9547ab53c83334f, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

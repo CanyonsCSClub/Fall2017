@@ -12,8 +12,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StingerBullet : MonoBehaviour {
-
+public class StingerBullet : MonoBehaviour
+{
     public float speed;
     public int stingerDamage = 5; 
 
@@ -32,20 +32,11 @@ public class StingerBullet : MonoBehaviour {
     }
 
     /* Hunter Goodin was here */
-    private void OnCollisionEnter(Collision col)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (col.gameObject.layer == 8)
+        if (collision.gameObject.layer == 8)
         {
             GameObject.Find("Player").GetComponent<Player>().TakeDamage(stingerDamage);
         }
-        else if (col.gameObject.tag == "Bolt(Clone)")
-        {
-            Destroy(col.gameObject);
-        }
-        else if (col.gameObject.name == "StingerBullet(Clone)")
-        {
-            Destroy(col.gameObject);
-        }
-        
     }
 }

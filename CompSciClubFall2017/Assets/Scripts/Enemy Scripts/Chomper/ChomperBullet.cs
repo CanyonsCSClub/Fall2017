@@ -25,12 +25,7 @@ public class ChomperBullet : MonoBehaviour {
         Destroy(gameObject, lifetime); // Destroys this gameObject after two seconds.
 	}
 
-    public void FixedUpdate()
-    {
-        //chomperBulletRigidbody.transform.Translate(-transform.right * Time.deltaTime * speed);
-    }
-
-    private void OnCollisionEnter(Collision col)
+    private void OnTriggerEnter(Collider col)
     {
         if (col.gameObject.layer == 8 && Time.time > nextDam)
         {

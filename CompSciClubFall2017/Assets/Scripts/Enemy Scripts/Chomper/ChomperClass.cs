@@ -5,9 +5,14 @@
  * Description: The Chomper Enemy class. 
  */
 
+
+
+
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ChomperClass : MonoBehaviour
 {
@@ -20,7 +25,11 @@ public class ChomperClass : MonoBehaviour
     private Vector3 chomperPos;
     private Vector3 playerPos;
     private Vector3 newPos;
+    private AudioSource chompAudio;
 
+    public Text pointPop;
+    public GameObject ptVal;
+    public Transform ptValLoc;
     public int scoreValue = 100; // We will use this to incriment the points 
 
     public Transform shotSpawn; 
@@ -32,6 +41,7 @@ public class ChomperClass : MonoBehaviour
     void Start()
     {
         chomperRigidBody = GetComponent<Rigidbody>();
+        chompAudio = GetComponent<AudioSource>();
         // chomperPos = GameObject.Find("PlayerTester").transform; 
     }
 
@@ -69,6 +79,8 @@ public class ChomperClass : MonoBehaviour
     public void takeDamage(int damage) // takeDamage is called when the bullet hits the enemy.
     {
         health -= damage;
+
+        chompAudio.Play();
     }
 
     /* Hunter Goodin was here */ 
@@ -86,10 +98,13 @@ public class ChomperClass : MonoBehaviour
 
     private void checkChomperHealth() // Checks to see if the Chomper is alive or not.
     {
-        if(health < 0)
+        if(health <= 0)
         {
             GameObject.Find("DisplayPoints").GetComponent<PointSystem>().UpdateScore(scoreValue);
+
             Destroy(gameObject);
+
+            Instantiate(ptVal, ptValLoc.position, ptValLoc.rotation);
         }
     }
 }
