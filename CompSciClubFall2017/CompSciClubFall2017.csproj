@@ -228,23 +228,33 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Asteroid.cs" />
+    <Compile Include="Assets\Scripts\AsteroidDown.cs" />
+    <Compile Include="Assets\Scripts\AsteroidUp.cs" />
+    <Compile Include="Assets\Scripts\AstroidMechanics.cs" />
+    <Compile Include="Assets\Scripts\AstroidSpawn.cs" />
     <Compile Include="Assets\Scripts\BoltMover.cs" />
-    <Compile Include="Assets\Scripts\Boundary.cs" />
     <Compile Include="Assets\Scripts\ButtonHover.cs" />
+    <Compile Include="Assets\Scripts\CreditsScript.cs" />
     <Compile Include="Assets\Scripts\DestroyProjectiles.cs" />
     <Compile Include="Assets\Scripts\DisplaysPlayerHP.cs" />
     <Compile Include="Assets\Scripts\Enemy Scripts\Chomper\ChomperBullet.cs" />
     <Compile Include="Assets\Scripts\Enemy Scripts\Chomper\ChomperClass.cs" />
+    <Compile Include="Assets\Scripts\Enemy Scripts\Crabber\CrabberBullet.cs" />
+    <Compile Include="Assets\Scripts\Enemy Scripts\Crabber\CrabberClass.cs" />
+    <Compile Include="Assets\Scripts\Enemy Scripts\Crabber\CrabberExplosion.cs" />
+    <Compile Include="Assets\Scripts\Enemy Scripts\Displayer.cs" />
     <Compile Include="Assets\Scripts\Enemy Scripts\EnemySpawn.cs" />
+    <Compile Include="Assets\Scripts\Enemy Scripts\Floater\FloaterClass.cs" />
+    <Compile Include="Assets\Scripts\Enemy Scripts\Floater\FloaterProjectile.cs" />
     <Compile Include="Assets\Scripts\Enemy Scripts\Stinger\StingerBullet.cs" />
-    <Compile Include="Assets\Scripts\Enemy Scripts\Stinger\StingerSuperClass.cs" />
+    <Compile Include="Assets\Scripts\Enemy Scripts\Stinger\StingerClass.cs" />
     <Compile Include="Assets\Scripts\Enemy Scripts\Striker\StrikerClass.cs" />
     <Compile Include="Assets\Scripts\Enemy Scripts\Striker\StrikerProjectile.cs" />
     <Compile Include="Assets\Scripts\EventSystem.cs" />
     <Compile Include="Assets\Scripts\GameOverMenu.cs" />
     <Compile Include="Assets\Scripts\GameOverMenuScript.cs" />
     <Compile Include="Assets\Scripts\Health.cs" />
+    <Compile Include="Assets\Scripts\KillPointDisplay.cs" />
     <Compile Include="Assets\Scripts\MainMenu.cs" />
     <Compile Include="Assets\Scripts\MouseHover.cs" />
     <Compile Include="Assets\Scripts\OffsetScroller.cs" />

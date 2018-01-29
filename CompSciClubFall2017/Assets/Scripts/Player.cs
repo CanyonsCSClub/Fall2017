@@ -34,21 +34,28 @@ public class Player : MonoBehaviour {
     private float damRate = 0.5f;             // Spawn Rate. Pretty self explanitory 
     private float nextDam;            // Used to see when the function should spawn the next prefab 
 
-    /* Code regarding player's shooting mechanics */
+    /* Code regarding player's shooting mechanics */ 
     public GameObject shot;         // We will use this to reference the player's projectile -- in-engine, we will populate this with our ""Bolt" prefab. 
     public Transform shotSpawn;     // We will use this to know where to spawn the shot. The location will be set to where the "ShotSpawn" GameObject is. We will do this by populating the Player with the ShotSpawn child object in-engine. 
     public float fireRate;          // The player's fire rate -- this will probably kept as 0 but... just in case. 
     private float nextFire;         // Will be used for the next time the player can fire a shot.
 
+    // Variables related to player audio
+    //  public AudioClip player_shoot_1;
+    public AudioSource playerAudio;  //Assigns audio linked to player abject to playerAudio
+   
+
+
     public void Start () // Start method initializes any variables/objects/rigidbodies that need to be used within the script.
     {
-        player = GetComponent<Rigidbody>(); // Getting the Rigidbody component of the GameObject player is attached to.
-        speed = 40f; // Initializing the speed variable with an value of 40.
+        player = GetComponent<Rigidbody>(); // Getting the Rigidbody component of the GameObject player is attached to. 
         isEnemy = false; // Sets the player as not an enemy
         //currentLives = 2; // Set initial player live count
         Health playerHealth = this.GetComponent<Health>();
         playerHealth.hp = 100; // Set initial player health
         setHealthandLiveText(); // Update the health and live count text component
+        //  danger = AudioClip.Create("alert_low_health", 1, 1, 1, true);
+        playerAudio = GetComponent<AudioSource>();
 
         //Debug.Log("Current Lives: " + currentLives);
         Debug.Log("Current Health " + playerHealth.hp);
@@ -60,14 +67,6 @@ public class Player : MonoBehaviour {
         isAlive(); // Function checks if the player is alive or not.
         playerWeapons();
 	}
-
-    // Display Health and Lives
-    public void setHealthandLiveText()
-    {
-        Health playerHealth = this.GetComponent<Health>();
-        healthText.text = "Ship Health: " + playerHealth.hp.ToString();
-        // liveText.text = "Lives: " + currentLives;
-    }
 
     public void FixedUpdate() // FixedUpdate is called on a regular timeline. Use FixedUpdate for physics based functions that need to be executed.
     {
@@ -85,53 +84,94 @@ public class Player : MonoBehaviour {
             // todo: allow the player to restart? or go back to the game menu
         }
     }
+    // Display Health and Lives
+    public void setHealthandLiveText()
+    {
+        Health playerHealth = this.GetComponent<Health>();
+        NewMethod(playerHealth);
+        // liveText.text = "Lives: " + currentLives;
+    }
+
+    private void NewMethod(Health playerHealth)
+    {
+        healthText.text = "Ship Health: " + playerHealth.hp.ToString();
+    }
+
+    public void TakeDamage(int damage) // This function is called whenever an enemy bullet enters the player's collider.
+    {
+        playerHealth = playerHealth - damage;
+        playerAudio.Play();
+
+        setHealthandLiveText(); 
+    }
 
     // This function displays the damage being dealt 
+
     void OnCollisionEnter(Collision col)
     {
-
-        if (col.gameObject.name == "StingerBullet(Clone)")
-        {
-            Destroy(col.gameObject);
-        }
-        else if (col.gameObject.name == "Bolt(Clone)")
-        {
-            Destroy(col.gameObject);
-        }
-
         bool damagePlayer = false;
-        int dam; 
+        int dam;
 
         if (col.gameObject.name == "StingerBullet(Clone)")
         {
             StingerBullet enemy = col.gameObject.GetComponent<StingerBullet>();
             if (enemy != null)
-            {
-                damagePlayer = true;
-            }
+            { damagePlayer = true; }
             dam = 5;
         }
         else if (col.gameObject.name == "ChomperLazer(Clone)")
         {
             ChomperBullet enemy = col.gameObject.GetComponent<ChomperBullet>();
             if (enemy != null)
-            {
-                damagePlayer = true;
-            }
+            { damagePlayer = true; }
             dam = 10;
         }
-        else
+        else if (col.gameObject.name == "CrabberExplosion(Clone)")
         {
-            dam = 0; 
+            CrabberExplosion enemy = col.gameObject.GetComponent<CrabberExplosion>();
+            if (enemy != null)
+            { damagePlayer = true; }
+            dam = 10;
         }
+        else if (col.gameObject.name == "StrikerProjectile(Clone)")
+        {
+            StrikerProjectile enemy = col.gameObject.GetComponent<StrikerProjectile>();
+            if (enemy != null)
+            { damagePlayer = true; }
+            dam = 5;
+        }
+        else if (col.gameObject.name == "AsteroidUp(Clone)")
+        {
+            AsteroidUp enemy = col.gameObject.GetComponent<AsteroidUp>();
+            if (enemy != null)
+            { damagePlayer = true; }
+            dam = 15;
+        }
+        else if (col.gameObject.name == "AsteroidDown(Clone)")
+        {
+            AsteroidDown enemy = col.gameObject.GetComponent<AsteroidDown>();
+            if (enemy != null)
+            { damagePlayer = true; }
+            dam = 15;
+        }
+        else
+        {  dam = 0; }
 
-        // Damage the player
+        // Setting the Health and Life Text
         if (damagePlayer)
         {
             Health playerHealth = this.GetComponent<Health>();
        
             // Damage the player if their health is not 0
-            if (playerHealth.hp > 0 && dam == 5)
+            if (playerHealth.hp > 0 && dam == 1 && Time.time > nextDam)
+            {
+                playerHealth.Damage(dam, this.isEnemy); // Damage the player by x amount
+
+                Debug.Log("Current Health: " + playerHealth.hp);
+                setHealthandLiveText();
+                nextDam = Time.time + damRate;
+            }
+            else if (playerHealth.hp > 0 && dam == 5)
             {
                 playerHealth.Damage(dam, this.isEnemy); // Damage the player by x amount
 
@@ -146,6 +186,34 @@ public class Player : MonoBehaviour {
                 setHealthandLiveText();
                 nextDam = Time.time + damRate;
             }
+            else if (playerHealth.hp > 0 && dam == 15 && Time.time > nextDam)
+            {
+                playerHealth.Damage(dam, this.isEnemy); // Damage the player by x amount
+
+                Debug.Log("Current Health: " + playerHealth.hp);
+                setHealthandLiveText();
+                nextDam = Time.time + damRate;
+            }
+        }
+        if (col.gameObject.name == "StingerBullet(Clone)")
+        {
+            Destroy(col.gameObject);
+        }
+        else if (col.gameObject.name == "Bolt(Clone)")
+        {
+            Destroy(col.gameObject);
+        }
+        else if (col.gameObject.name == "StrikerProjectile(Clone)")
+        {
+            Destroy(col.gameObject);
+        }
+        else if (col.gameObject.name == "AsteroidUp(Clone)")
+        {
+            Destroy(col.gameObject);
+        }
+        else if (col.gameObject.name == "AsteroidDown(Clone)")
+        {
+            Destroy(col.gameObject);
         }
     }
 
@@ -156,7 +224,7 @@ public class Player : MonoBehaviour {
     }
 
     private void playerMovement()
-    {   
+    {
         if(Input.GetKey("w")) // When w is pressed, move the player up.
         {
             player.transform.Translate(transform.up * Time.deltaTime * speed);
@@ -196,7 +264,7 @@ public class Player : MonoBehaviour {
         {
             Debug.Log("Player is dead");
             // Time.timeScale = 0;             // Commented out to test the Game Over Scene 
-            Application.LoadLevel(2);
+            Application.LoadLevel(0);
         }
     }
 
@@ -205,16 +273,24 @@ public class Player : MonoBehaviour {
     {
         if(Input.GetKeyDown("space"))
         {
-            // GameObject clone = 
             Instantiate(shot, shotSpawn.position, shotSpawn.rotation); // Creates a new instance of the Shot prefab everytime this is called. 
         }
     }
 
-    // This function actually does the damage 
-    public void TakeDamage(int damage) // This function is called whenever an enemy bullet enters the player's collider.
+    //Gerardo Bonnet was here :D
+
+  /*  private void inDanger()
     {
-        playerHealth = playerHealth - damage; 
+        if (playerHealth <= 20)
+        {
+            //    playerAudio.PlayOneShot(danger, .5F);
+            if (!playerAudio.enabled)
+                playerAudio.enabled = true;
+          
+        }
     }
+    */
+
 
 }
 
