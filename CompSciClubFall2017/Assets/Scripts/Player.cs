@@ -2,7 +2,7 @@
  * 
  * Authors: Spencer Wilson, Andrew Ramirez, Hunter Goodin
  * Date Created: 10/8/2017 @ 5:29 pm
- * Date Modified: 12/10/2017 @ 9:26 pm
+ * Date Modified: 11/20/2017 @ 10:06 pm by Hunter Goodin 
  * Project: CompSciClubFall2017
  * File: Player.cs
  * Description: File that houses all of the code for the player's health, lives, movement, and abilities.

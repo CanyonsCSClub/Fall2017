@@ -32,7 +32,7 @@ public class BoltMover : MonoBehaviour
             col.gameObject.GetComponent<StingerClass>().TakeDamage(damage);
         }
         // Chomper 
-        if (col.gameObject.tag == "Chomper")
+        else if (col.gameObject.tag == "Chomper")
         {
             col.gameObject.GetComponent<ChomperClass>().takeDamage(damage);
         }

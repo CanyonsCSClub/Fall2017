@@ -1,5 +1,5 @@
 ﻿ /* 
- * Programmer:	Hunter Goodin
+ * Programmer:	Hunter Goodin 
  * Date:		11/24/2017 
  * Project: 	CompSciClubFall2017
  * Description: The Chomper Enemy's projectiles class. 
@@ -10,22 +10,17 @@ using UnityEngine;
 
 public class ChomperBullet : MonoBehaviour {
 
-    public const float speed = 5f;
+    public float speed;
     public int chomperDamage = 10; 
 
     private Rigidbody chomperBulletRigidbody; // Creating a variable to hold the Chomper rigidbody reference.
-    private float lifetime = 0.5f; // Creating a float variable that holds the amount of seconds the object ChomperBullet exists for before self-destructing. 
+    private float lifetime = 2f; // Creating a float variable that holds the amount of seconds the object ChomperBullet exists for before self-destructing. 
 
     private float damRate = 0.5f;             // Spawn Rate. Pretty self explanitory 
     private float nextDam;            // Used to see when the function should spawn the next prefab 
 
-    private GameObject player;
-    private Vector3 newPos;
-    private Vector3 currPos;
-
     void Start()
     {
-        player = GameObject.Find("Player");
         chomperBulletRigidbody = GetComponent<Rigidbody>();
         Destroy(gameObject, lifetime); // Destroys this gameObject after two seconds.
 	}

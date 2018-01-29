@@ -25,10 +25,6 @@ public class StrikerClass : MonoBehaviour
     private float timeElapsedTeleport; // Holds the time that has elapsed since the Striker last teleported.
     private float timeElapsedShot; // Holds the time that has elapsed since the Striker last shot.
 
-    private float timeElapsedBehavior; // Holds the time that has elapsed since the last behavior change.
-    private float timeElapsedTeleport; // Holds the time that has elapsed since the Striker last teleported.
-    private float timeElapsedShot; // Holds the time that has elapsed since the Striker last shot.
-
     private bool attackedAlready; // Holds a true/false variable that represents whether or not the Striker attacked already before his teleportation or not.
     private bool attacking; // Bool that holds a true or false value whether or not the Striker is attacking or not.
 
@@ -126,14 +122,6 @@ public class StrikerClass : MonoBehaviour
             GameObject.Find("DisplayPoints").GetComponent<PointSystem>().UpdateScore(scoreValue);
             GameObject.Destroy(gameObject); // Destroys the Striker boss when it's health goes below zero.
             Debug.Log("Striker is dead.");
-        }
-    }
-
-    private void OnCollisionEnter(Collision collision) // Checks for collisions.
-    {
-        if(collision.gameObject.name == "Bolt(Clone)") // If the incoming game object that collides with the Striker has the name of Bolt(Clone).
-        {
-            Destroy(collision.gameObject); // Destroy the bolt.
         }
     }
 
