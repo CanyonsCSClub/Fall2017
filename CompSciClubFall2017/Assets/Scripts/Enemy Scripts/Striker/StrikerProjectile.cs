@@ -18,8 +18,9 @@ public class StrikerProjectile : MonoBehaviour
     private GameObject playerGameObj;
     private Vector3 newPos;
     private Vector3 finalPos;
-    private const float speed = 20f; // Private float variable named speed that holds the StrikerProjectile's speed.
+    public float speed = 10f; // Private float variable named speed that holds the StrikerProjectile's speed.
     private const float lifetime = 5f; // Private float variable named lifetime that holds the projectile's lifetime.
+    public int strikerDamage = 5; 
 
     //private Rigidbody strikerPRb;
     // Use this for initialization
@@ -45,11 +46,12 @@ public class StrikerProjectile : MonoBehaviour
     {
         if (col.gameObject.tag == "Player")
         {
-            col.gameObject.GetComponent<Player>().TakeDamage(1);
+            col.gameObject.GetComponent<Player>().TakeDamage(strikerDamage);
         }
         else if(col.gameObject.name == "Bolt(Clone)")
         {
             Destroy(col.gameObject);
+            Destroy(gameObject);
         }
     }
 }

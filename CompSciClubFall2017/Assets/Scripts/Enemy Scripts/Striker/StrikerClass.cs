@@ -12,14 +12,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class StrikerClass : MonoBehaviour {
-
+public class StrikerClass : MonoBehaviour
+{
+    public GameObject projectile; // Acts at the first projectile that spawns in.
     private GameObject strikerGameObject; // Creating a private GameObject variable named strikerGameObject to hold the current gameobject reference.
     private GameObject playerGameObject; // Holds the reference to the player game object.
     private GameObject shotSpawn; // Holds the location of where the Striker's projectiles spawn.
 
-    public GameObject projectile; // Acts at the first projectile that spawns in.
+    private float timeElapsedBehavior; // Holds the time that has elapsed since the last behavior change.
+    private float timeElapsedTeleport; // Holds the time that has elapsed since the Striker last teleported.
+    private float timeElapsedShot; // Holds the time that has elapsed since the Striker last shot.
 
     private float timeElapsedBehavior; // Holds the time that has elapsed since the last behavior change.
     private float timeElapsedTeleport; // Holds the time that has elapsed since the Striker last teleported.
@@ -27,6 +31,11 @@ public class StrikerClass : MonoBehaviour {
 
     private bool attackedAlready; // Holds a true/false variable that represents whether or not the Striker attacked already before his teleportation or not.
     private bool attacking; // Bool that holds a true or false value whether or not the Striker is attacking or not.
+
+    public Text pointPop;
+    public GameObject ptVal;
+    public Transform ptValLoc;
+    public int scoreValue = 1000; // We will use this to incriment the points 
 
     public int health = 20; // Initializes the Striker's health to be 50.
     private int speed = 40;
@@ -64,28 +73,19 @@ public class StrikerClass : MonoBehaviour {
         {
             if (attacking == true) // While Striker is attacking.
             {
-                if (timeElapsedBehavior <= 5) // While the time that has elapsed (variable timeElapsedBehavior) since the Striker's last mood swing is less than 5 seconds.
+                if (timeElapsedBehavior <= 3) // While the time that has elapsed (variable timeElapsedBehavior) since the Striker's last mood swing is less than 5 seconds.
                 {
                     timeElapsedBehavior += Time.unscaledDeltaTime; // Increment timeElapsedBehavior by the number of seconds that have passed since the last frame to the current one.
-                    if (timeElapsedShot >= 1) // When the time that has elapsed since the Striker last shot is greater than or equal to one.
+                    if (timeElapsedShot >= 0.2) // When the time that has elapsed since the Striker last shot is greater than or equal to one.
                     {
                         transform.position = new Vector3(10f, playerGameObject.transform.position.y, 0f); // Teleports to the player's current y-axis coordinate. This is a sort of teleport and following of the player.
-                        Instantiate(projectile, shotSpawn.transform.position, transform.rotation); // Instantiating Striker projectile.
-                        Instantiate(projectile, shotSpawn.transform.position, transform.rotation); // Instantiating Striker projectile.
-                        Instantiate(projectile, shotSpawn.transform.position, transform.rotation); // Instantiating Striker projectile.
-                        Instantiate(projectile, shotSpawn.transform.position, transform.rotation); // Instantiating Striker projectile.
-                        Instantiate(projectile, shotSpawn.transform.position, transform.rotation); // Instantiating Striker projectile.
-                        Instantiate(projectile, shotSpawn.transform.position, transform.rotation); // Instantiating Striker projectile.
-                        Instantiate(projectile, shotSpawn.transform.position, transform.rotation); // Instantiating Striker projectile.
-                        Instantiate(projectile, shotSpawn.transform.position, transform.rotation); // Instantiating Striker projectile.
-                        Instantiate(projectile, shotSpawn.transform.position, transform.rotation); // Instantiating Striker projectile.
                         Instantiate(projectile, shotSpawn.transform.position, transform.rotation); // Instantiating Striker projectile.
                         timeElapsedShot = 0f; // Reset the timer for timeElapsedShot back to zero seconds.
                     }
                     else
-                    {
-                        timeElapsedShot += Time.unscaledDeltaTime;
-                    }
+                    { 
+                        timeElapsedShot += Time.unscaledDeltaTime; 
+                    } 
                 }
                 else
                 {
@@ -116,25 +116,24 @@ public class StrikerClass : MonoBehaviour {
                 }
             }
         }
-        //// Stage 2: MIDDLE STAGE
-        //else if(health <= 30 && health > 15)
-        //{
-
-        //}
-        //// Stage 3: FINAL STAGE
-        //else if(health <= 15 && health > 0)
-        //{
-
-        //}
     }
 
     private void IsAlive() // Function checks if the Striker is alive or not.
     {
-        if (health < 0)
+        if (health <= 0)
         {
-            GameObject.Find("DisplayPoints").GetComponent<PointSystem>().UpdateScore(1000);
+            Instantiate(ptVal, ptValLoc.position, ptValLoc.rotation);
+            GameObject.Find("DisplayPoints").GetComponent<PointSystem>().UpdateScore(scoreValue);
             GameObject.Destroy(gameObject); // Destroys the Striker boss when it's health goes below zero.
             Debug.Log("Striker is dead.");
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision) // Checks for collisions.
+    {
+        if(collision.gameObject.name == "Bolt(Clone)") // If the incoming game object that collides with the Striker has the name of Bolt(Clone).
+        {
+            Destroy(collision.gameObject); // Destroy the bolt.
         }
     }
 

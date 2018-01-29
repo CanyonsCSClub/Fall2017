@@ -30,14 +30,7 @@ public class ChomperBullet : MonoBehaviour {
         Destroy(gameObject, lifetime); // Destroys this gameObject after two seconds.
 	}
 
-    public void FixedUpdate() // Serves to track the Chomper's lazer beam's movement.
-    {
-        currPos = transform.position;
-        newPos = new Vector3(transform.position.x, player.transform.position.y, transform.position.z);
-        transform.position = Vector3.MoveTowards(transform.position, newPos, Time.deltaTime * speed);
-    }
-
-    private void OnCollisionEnter(Collision col)
+    private void OnTriggerEnter(Collider col)
     {
         if (col.gameObject.layer == 8 && Time.time > nextDam)
         {

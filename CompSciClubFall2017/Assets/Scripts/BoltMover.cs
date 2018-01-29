@@ -29,16 +29,27 @@ public class BoltMover : MonoBehaviour
         // Stinger 
         if(col.gameObject.tag == "Stinger")
         {
-            col.gameObject.GetComponent<StingerSuperClass>().takeDamage(damage);
+            col.gameObject.GetComponent<StingerClass>().TakeDamage(damage);
         }
         // Chomper 
         if (col.gameObject.tag == "Chomper")
         {
             col.gameObject.GetComponent<ChomperClass>().takeDamage(damage);
         }
-        if(col.gameObject.tag == "Striker")
+        // Crabber 
+        else if (col.gameObject.tag == "Crabber")
+        {
+            col.gameObject.GetComponent<CrabberClass>().takeDamage(damage);
+        }
+        // Striker 
+        else if (col.gameObject.tag == "Striker")
         {
             col.gameObject.GetComponent<StrikerClass>().TakeDamage(damage);
+        }
+        // Asteroids 
+        else if (col.gameObject.tag == "astroid")
+        {
+            Destroy(gameObject);
         }
         else if (col.gameObject.name == "StingerBullet(Clone)")
         {

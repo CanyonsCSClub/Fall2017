@@ -27,5 +27,17 @@ public class DestroyProjectiles : MonoBehaviour
         {
             Destroy(col.gameObject);
         }
+        else if (col.gameObject.name == "AsteroidDown(Clone)")
+        {
+            Destroy(col.gameObject);
+        }
+        else if (col.gameObject.name == "AsteroidUp(Clone)")
+        {
+            Destroy(col.gameObject);
+        }
+        else if (col.gameObject.name == "CrabberBomb(Clone)")
+        {
+            Destroy(col.gameObject);
+        }
     }
 }

@@ -23,8 +23,13 @@ public class PointSystem : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-        scoreText.text = point.ToString();
+        NewMethod();
         scoreTimer = scoreDelayTimer;
+    }
+
+    private void NewMethod()
+    {
+        scoreText.text = point.ToString();
     }
 
     // Update is called once per frame
