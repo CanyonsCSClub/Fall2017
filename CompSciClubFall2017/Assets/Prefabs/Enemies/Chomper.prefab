@@ -140,6 +140,7 @@ GameObject:
   - component: {fileID: 114581855131959412}
   - component: {fileID: 136198425866242720}
   - component: {fileID: 82241868401272786}
+  - component: {fileID: 114752867359036224}
   m_Layer: 0
   m_Name: Chomper
   m_TagString: Chomper
@@ -582,6 +583,17 @@ MonoBehaviour:
   ptValLoc: {fileID: 4825698762275256}
   scoreValue: 100
   shotSpawn: {fileID: 4523454747957596}
+--- !u!114 &114752867359036224
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1968617510305170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d319a2edcee614646afb0436f6077a11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114828391835954342
 MonoBehaviour:
   m_ObjectHideFlags: 1

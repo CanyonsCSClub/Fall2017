@@ -152,6 +152,7 @@ GameObject:
   - component: {fileID: 114648874023612972}
   - component: {fileID: 136471435862544218}
   - component: {fileID: 82024120981155844}
+  - component: {fileID: 114663621698021128}
   m_Layer: 0
   m_Name: Crabber
   m_TagString: Crabber
@@ -1276,6 +1277,17 @@ MonoBehaviour:
   ptValLoc: {fileID: 4970741020058996}
   scoreValue: 100
   shotSpawn: {fileID: 4096249736664632}
+--- !u!114 &114663621698021128
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1321889170212878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d319a2edcee614646afb0436f6077a11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114683652070769510
 MonoBehaviour:
   m_ObjectHideFlags: 1
