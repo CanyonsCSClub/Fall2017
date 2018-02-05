@@ -30,25 +30,25 @@ public class BoltMover : MonoBehaviour
         if(col.gameObject.tag == "Stinger")
         {
             col.gameObject.GetComponent<StingerClass>().TakeDamage(damage);
-            col.gameObject.GetComponent<FlashOnDamage>().Flash(); // 
+            col.gameObject.GetComponent<FlashOnDamage>().StartCoroutine("Flash"); // Starts the coroutine named Flash in the FlashOnDamage script component attached to the incoming game object.
         }
         // Chomper 
         else if (col.gameObject.tag == "Chomper")
         {
             col.gameObject.GetComponent<ChomperClass>().takeDamage(damage);
-            col.gameObject.GetComponent<FlashOnDamage>().Flash();
+            col.gameObject.GetComponent<FlashOnDamage>().StartCoroutine("Flash"); // Starts the coroutine named Flash in the FlashOnDamage script component attached to the incoming game object.
         }
         // Crabber 
         else if (col.gameObject.tag == "Crabber")
         {
             col.gameObject.GetComponent<CrabberClass>().takeDamage(damage);
-            col.gameObject.GetComponent<FlashOnDamage>().Flash();
+            col.gameObject.GetComponent<FlashOnDamage>().StartCoroutine("Flash"); // Starts the coroutine named Flash in the FlashOnDamage script component attached to the incoming game object.
         }
         // Striker 
         else if (col.gameObject.tag == "Striker")
         {
             col.gameObject.GetComponent<StrikerClass>().TakeDamage(damage);
-            col.gameObject.GetComponent<FlashOnDamage>().Flash();
+            col.gameObject.GetComponentInChildren<FlashOnDamage>().StartCoroutine("Flash"); // Starts the coroutine named Flash in the FlashOnDamage script component attached to the incoming game object.
         }
         // Asteroids 
         else if (col.gameObject.tag == "astroid")
@@ -60,4 +60,5 @@ public class BoltMover : MonoBehaviour
             Destroy(col.gameObject);
         }
     }
+
 }

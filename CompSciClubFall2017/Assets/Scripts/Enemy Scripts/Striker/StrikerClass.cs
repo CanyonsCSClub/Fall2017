@@ -65,6 +65,7 @@ public class StrikerClass : MonoBehaviour
 
     private void StrikerBehavior() // This function houses the code for the Striker's movment. The Striker moves in a sine pattern and teleports.
     {
+        // PHASE 1: SPAWN PHASE
         if (health <= 20 && health > 0)
         {
             if (attacking == true) // While Striker is attacking.
@@ -112,6 +113,7 @@ public class StrikerClass : MonoBehaviour
                 }
             }
         }
+        // PHASE 2: BEAM PHASE
     }
 
     private void IsAlive() // Function checks if the Striker is alive or not.

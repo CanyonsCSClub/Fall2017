@@ -315,7 +315,6 @@
     <Compile Include="Assets\Scripts\Enemy Scripts\Crabber\CrabberExplosion.cs" />
     <Compile Include="Assets\Scripts\Enemy Scripts\Displayer.cs" />
     <Compile Include="Assets\Scripts\Enemy Scripts\EnemySpawn.cs" />
-    <Compile Include="Assets\Scripts\Enemy Scripts\FlashOnDamage.cs" />
     <Compile Include="Assets\Scripts\Enemy Scripts\Floater\FloaterClass.cs" />
     <Compile Include="Assets\Scripts\Enemy Scripts\Floater\FloaterProjectile.cs" />
     <Compile Include="Assets\Scripts\Enemy Scripts\Stinger\StingerBullet.cs" />
@@ -323,6 +322,7 @@
     <Compile Include="Assets\Scripts\Enemy Scripts\Striker\StrikerClass.cs" />
     <Compile Include="Assets\Scripts\Enemy Scripts\Striker\StrikerProjectile.cs" />
     <Compile Include="Assets\Scripts\EventSystem.cs" />
+    <Compile Include="Assets\Scripts\FlashOnDamage.cs" />
     <Compile Include="Assets\Scripts\GameOverMenu.cs" />
     <Compile Include="Assets\Scripts\GameOverMenuScript.cs" />
     <Compile Include="Assets\Scripts\Health.cs" />

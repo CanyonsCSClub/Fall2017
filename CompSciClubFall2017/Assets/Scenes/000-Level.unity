@@ -2099,6 +2099,11 @@ Prefab:
       propertyPath: healthText
       value: 
       objectReference: {fileID: 1475971706}
+    - target: {fileID: 122175308540724816, guid: 6370cae7948b0dc498aec2b00428c2ec,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6370cae7948b0dc498aec2b00428c2ec, type: 2}
   m_IsPrefabParent: 0

@@ -77,7 +77,6 @@ GameObject:
   - component: {fileID: 136135019915486812}
   - component: {fileID: 136181385181093874}
   - component: {fileID: 82734248993961496}
-  - component: {fileID: 122175308540724816}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -379,17 +378,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 1
   isEnemy: 1
---- !u!122 &122175308540724816
-Halo:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1810004162991830}
-  m_Enabled: 1
-  m_Color:
-    serializedVersion: 2
-    rgba: 4282861426
-  m_Size: 5
 --- !u!136 &136135019915486812
 CapsuleCollider:
   m_ObjectHideFlags: 1
