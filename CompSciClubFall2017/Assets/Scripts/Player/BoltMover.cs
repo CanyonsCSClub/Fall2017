@@ -1,6 +1,7 @@
 ﻿/* 
- * Programmer:	Hunter Goodin 
- * Date:		11/5/2017 
+ * Programmers:	Hunter Goodin, Spencer Wilson
+ * Date First Modified:	11/5/2017
+ * Date Last Modified: 2/5/2018 @ 8:05 pm
  * Project: 	CompSciClubFall2017
  * Description: Creating the Bolt object the player will shoot. 
  */

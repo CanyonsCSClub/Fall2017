@@ -29,22 +29,16 @@ public class FlashOnDamage : MonoBehaviour {
 
     public IEnumerator Flash()
     {
-        float timeFlashing = 0f;
+        int timesFlashed = 0;
         var currentColor = newColor;
-        while(timeFlashing < 1)
+
+        while (timesFlashed <= 3) // While timesFlashed is less than or equal to three.
         {
-            Debug.Log("Flashing!");
-            timeFlashing += Time.deltaTime;
-            yield return new WaitForSeconds(flashSpeed);
-            timeFlashing += flashSpeed;
-            if(currentColor == newColor)
-            {
-                Debug.Log("Flashing white.");
-            }
-            else
-            {
-                Debug.Log("Flashing red.");
-            }
+            Debug.Log("Flashing white.");
+            yield return null;
+            Debug.Log("Back to original color.");
+            yield return null;
+            timesFlashed++; // Incrementing timesFlashed.
         }
     }
 }
