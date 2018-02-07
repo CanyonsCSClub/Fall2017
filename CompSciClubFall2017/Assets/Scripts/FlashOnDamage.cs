@@ -24,21 +24,26 @@ public class FlashOnDamage : MonoBehaviour {
 
     private void Start()
     {
-
+        meshRend = gameObject.GetComponentInChildren<MeshRenderer>(); // Assigning the MeshRenderer component in the current game object's child to reference variable meshRend.
     }
 
-    public IEnumerator Flash()
+    public void Flash()
     {
-        int timesFlashed = 0;
-        var currentColor = newColor;
-
-        while (timesFlashed <= 3) // While timesFlashed is less than or equal to three.
-        {
-            Debug.Log("Flashing white.");
-            yield return null;
-            Debug.Log("Back to original color.");
-            yield return null;
-            timesFlashed++; // Incrementing timesFlashed.
-        }
+        Debug.Log("Flashy Flashy!");
     }
+
+    //public IEnumerator Flash()
+    //{
+    //    int timesFlashed = 0;
+    //    var currentColor = newColor;
+
+    //    while (timesFlashed <= 3) // While timesFlashed is less than or equal to three.
+    //    {
+    //        timesFlashed++; // Incrementing timesFlashed.
+    //        Debug.Log("Flashing white.");
+    //        yield return new WaitForSeconds(1);
+    //        Debug.Log("Back to original color.");
+    //        yield return new WaitForSeconds(1);
+    //    }
+    //}
 }
