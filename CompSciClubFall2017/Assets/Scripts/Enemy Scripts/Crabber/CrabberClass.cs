@@ -5,14 +5,12 @@
  * Description: The Crabber Enemy class. 
  */
 
-
-
-
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
+using System;
 
 public class CrabberClass : MonoBehaviour
 {
@@ -26,6 +24,12 @@ public class CrabberClass : MonoBehaviour
     private Vector3 playerPos;
     private Vector3 newPos;
     private AudioSource crabAudio;
+
+    public string path = "Assets/Scripts/Unlock System/WhatIsUnlocked.txt";
+    public List<string> readList = new List<string>();
+    public int ship05Prog;
+    public string ship05ProgToInt;
+    public int listLength;
 
     public Text pointPop;
     public GameObject ptVal;
@@ -82,7 +86,6 @@ public class CrabberClass : MonoBehaviour
         crabAudio.Play();
     }
 
-    /* Hunter Goodin was here */ 
     private void OnCollisionEnter(Collision col)
     {
         if(col.gameObject.name == "Bolt(Clone)" )
@@ -93,13 +96,45 @@ public class CrabberClass : MonoBehaviour
 
     private void checkCrabberHealth() // Checks to see if the Crabber is alive or not.
     {
-        if(health <= 0)
+        if (health <= 0)
         {
+            UnlockedReader();
+
+            StreamWriter writer = new StreamWriter(path);
             GameObject.Find("DisplayPoints").GetComponent<PointSystem>().UpdateScore(scoreValue);
-
             Destroy(gameObject);
-
             Instantiate(ptVal, ptValLoc.position, ptValLoc.rotation);
+
+            /* Writing */
+            ship05Prog++;
+
+            readList[20] = "" + ship05Prog;
+
+            for (int r = 0; r < readList.Count; r++)
+            {
+                writer.WriteLine(readList[r]);
+            }
+
+            writer.Close();
         }
+    }
+
+    private void UnlockedReader()
+    {
+        /* Reading */
+        StreamReader reader = new StreamReader(path);
+
+        while (!reader.EndOfStream)
+        {
+            string line = reader.ReadLine();
+            readList.Add(line);
+        }
+
+        ship05ProgToInt = readList[20];
+
+        Convert.ToInt32(ship05ProgToInt);
+        ship05Prog = Int32.Parse(ship05ProgToInt);
+
+        reader.Close();
     }
 }

@@ -7,12 +7,12 @@
 
 
 
-
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
+using System;
 
 public class ChomperClass : MonoBehaviour
 {
@@ -27,6 +27,12 @@ public class ChomperClass : MonoBehaviour
     private Vector3 newPos;
     private AudioSource chompAudio;
 
+    public string path = "Assets/Scripts/Unlock System/WhatIsUnlocked.txt";
+    public List<string> readList = new List<string>();
+    public int ship04Prog;
+    public string ship04ProgToInt;
+    public int listLength;
+
     public Text pointPop;
     public GameObject ptVal;
     public Transform ptValLoc;
@@ -35,14 +41,12 @@ public class ChomperClass : MonoBehaviour
     public Transform shotSpawn; 
     private float fireRate = 5f;
     private float nextFire; 
-    // private Vector3 velocity;
 
     // Use this for initialization
     void Start()
     {
         chomperRigidBody = GetComponent<Rigidbody>();
         chompAudio = GetComponent<AudioSource>();
-        // chomperPos = GameObject.Find("PlayerTester").transform; 
     }
 
     public void Update()
@@ -98,13 +102,45 @@ public class ChomperClass : MonoBehaviour
 
     private void checkChomperHealth() // Checks to see if the Chomper is alive or not.
     {
-        if(health <= 0)
+        if (health <= 0)
         {
+            UnlockedReader();
+
+            StreamWriter writer = new StreamWriter(path);
             GameObject.Find("DisplayPoints").GetComponent<PointSystem>().UpdateScore(scoreValue);
-
             Destroy(gameObject);
-
             Instantiate(ptVal, ptValLoc.position, ptValLoc.rotation);
+
+            /* Writing */
+            ship04Prog++;
+
+            readList[18] = "" + ship04Prog;
+
+            for (int r = 0; r < readList.Count; r++)
+            {
+                writer.WriteLine(readList[r]);
+            }
+
+            writer.Close();
         }
+    }
+
+    private void UnlockedReader()
+    {
+        /* Reading */
+        StreamReader reader = new StreamReader(path);
+
+        while (!reader.EndOfStream)
+        {
+            string line = reader.ReadLine();
+            readList.Add(line);
+        }
+
+        ship04ProgToInt = readList[18];
+
+        Convert.ToInt32(ship04ProgToInt);
+        ship04Prog = Int32.Parse(ship04ProgToInt);
+
+        reader.Close();
     }
 }

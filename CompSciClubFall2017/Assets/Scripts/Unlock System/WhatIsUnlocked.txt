@@ -1,0 +1,21 @@
+WhatIsUnlocked.txt
+=== Ships That Are Unlocked (Y means it is, N means it isnt) === 
+Ship01: 
+Y
+Ship02: 
+N
+Ship03: 
+N
+Ship04: 
+N
+Ship05: 
+N
+=== The Progress Made Towards Unlocking All Of The Ships === 
+Ship02 Progress: 
+0
+Ship03 Progress: 
+0
+Ship04 Progress: 
+0
+Ship05 Progress: 
+0

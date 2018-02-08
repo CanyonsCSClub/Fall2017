@@ -207,14 +207,6 @@ public class Player : MonoBehaviour {
         {
             Destroy(col.gameObject);
         }
-        else if (col.gameObject.name == "AsteroidUp(Clone)")
-        {
-            Destroy(col.gameObject);
-        }
-        else if (col.gameObject.name == "AsteroidDown(Clone)")
-        {
-            Destroy(col.gameObject);
-        }
     }
 
     [System.Serializable]
@@ -276,21 +268,6 @@ public class Player : MonoBehaviour {
             Instantiate(shot, shotSpawn.position, shotSpawn.rotation); // Creates a new instance of the Shot prefab everytime this is called. 
         }
     }
-
-    //Gerardo Bonnet was here :D
-
-  /*  private void inDanger()
-    {
-        if (playerHealth <= 20)
-        {
-            //    playerAudio.PlayOneShot(danger, .5F);
-            if (!playerAudio.enabled)
-                playerAudio.enabled = true;
-          
-        }
-    }
-    */
-
 
 }
 
