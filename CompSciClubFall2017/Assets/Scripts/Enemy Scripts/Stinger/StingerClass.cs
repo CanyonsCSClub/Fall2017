@@ -1,18 +1,18 @@
 ﻿/*
- * 
  * Author: Spencer Wilson & Hunter Goodin 
  * Date Created: 11/3/2017 @ 11:17 pm
  * Date Modified: 11/14/2017 @ 10:36 pm
  * Project: CompSciClubFall2017
  * File: StingerSuperClass.cs
  * Description: This program houses all of the code for the Stinger AI.
- * 
  */
 
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI; 
+using UnityEngine.UI;
+using System.IO;
+using System;
 
 public class StingerClass : MonoBehaviour
 {
@@ -27,6 +27,12 @@ public class StingerClass : MonoBehaviour
     private Vector3 newPos;
     private AudioSource stingAudio;
 
+    public string path = "Assets/Scripts/Unlock System/WhatIsUnlocked.txt";
+    public List<string> readList = new List<string>();
+    public int ship03Prog;
+    public string ship03ProgToInt;
+    public int listLength; 
+
     public Text pointPop;
     public GameObject ptVal;
     public Transform ptValLoc;
@@ -35,14 +41,12 @@ public class StingerClass : MonoBehaviour
     public Transform shotSpawn; 
     private float fireRate = 0.5f;
     private float nextFire; 
-    // private Vector3 velocity;
 
     // Use this for initialization
     void Start()
     {
         stingerRigidBody = GetComponent<Rigidbody>();
         stingAudio = GetComponent<AudioSource>();
-        // stingerPos = GameObject.Find("PlayerTester").transform; 
     }
 
     public void Update()
@@ -97,13 +101,45 @@ public class StingerClass : MonoBehaviour
 
     private void checkStingerHealth() // Checks to see if the Stinger is alive or not.
     {
-        if(health <= 0)
+        if (health <= 0)
         {
+            UnlockedReader();
+
+            StreamWriter writer = new StreamWriter(path);
             GameObject.Find("DisplayPoints").GetComponent<PointSystem>().UpdateScore(scoreValue);
-
             Destroy(gameObject);
-
             Instantiate(ptVal, ptValLoc.position, ptValLoc.rotation);
+
+            /* Writing */ 
+            ship03Prog++;
+
+            readList[16] = "" + ship03Prog;
+
+            for (int r = 0; r < readList.Count; r++)
+            {
+                writer.WriteLine(readList[r]);
+            }
+
+            writer.Close();
         }
+    }
+
+    private void UnlockedReader()
+    {
+        /* Reading */
+        StreamReader reader = new StreamReader(path);
+
+        while (!reader.EndOfStream)
+        {
+            string line = reader.ReadLine();
+            readList.Add(line);
+        }
+
+        ship03ProgToInt = readList[16];
+
+        Convert.ToInt32(ship03ProgToInt);
+        ship03Prog = Int32.Parse(ship03ProgToInt);
+
+        reader.Close(); 
     }
 }

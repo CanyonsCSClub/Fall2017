@@ -55,5 +55,13 @@ public class BoltMover : MonoBehaviour
         {
             Destroy(col.gameObject);
         }
+        else if (col.gameObject.name == "ChomperLazer(Clone)")
+        {
+            Destroy(gameObject);
+        }
+        else if (col.gameObject.name == "Bolt(Clone)")
+        {
+            Destroy(col.gameObject);
+        }
     }
 }

@@ -7,6 +7,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CrabberBullet : MonoBehaviour
 {
@@ -15,9 +16,13 @@ public class CrabberBullet : MonoBehaviour
     public Transform expLoc;
     public GameObject explosion;
 
+    public Text pointPop;
+    public GameObject ptVal;
+    public Transform ptValLoc;
+    public int scoreValue = 10; // We will use this to incriment the points 
+
     public float speedFollow = 10;
     public float speedLeft = 5;
-    public int pleaseShowUp; 
     private bool isTracking; 
 
     private Rigidbody crabberBulletRigidbody; // Creating a variable to hold the Crabber rigidbody reference.
@@ -85,8 +90,46 @@ public class CrabberBullet : MonoBehaviour
             Destroy(col.gameObject);
             Destroy(gameObject);
             Instantiate(explosion, expLoc.position, expLoc.rotation);
+
+            GameObject.Find("DisplayPoints").GetComponent<PointSystem>().UpdateScore(scoreValue);
+            Instantiate(ptVal, ptValLoc.position, ptValLoc.rotation);
         }
         else if (col.gameObject.name == "StingerBullet(Clone)")
+        {
+            Destroy(gameObject);
+            Instantiate(explosion, expLoc.position, expLoc.rotation);
+        }
+        else if (col.gameObject.name == "CrabberExplosion(Clone)")
+        {
+            Destroy(gameObject);
+            Instantiate(explosion, expLoc.position, expLoc.rotation);
+        }
+        else if (col.gameObject.name == "AsteroidUp(Clone)")
+        {
+            Destroy(gameObject);
+            Instantiate(explosion, expLoc.position, expLoc.rotation);
+        }
+        else if (col.gameObject.name == "AsteroidDown(Clone)")
+        {
+            Destroy(gameObject);
+            Instantiate(explosion, expLoc.position, expLoc.rotation);
+        }
+        else if (col.gameObject.name == "Stinger(Clone)")
+        {
+            Destroy(gameObject);
+            Instantiate(explosion, expLoc.position, expLoc.rotation);
+        }
+        else if (col.gameObject.name == "Crabber(Clone)")
+        {
+            Destroy(gameObject);
+            Instantiate(explosion, expLoc.position, expLoc.rotation);
+        }
+        else if (col.gameObject.name == "Chomper(Clone)")
+        {
+            Destroy(gameObject);
+            Instantiate(explosion, expLoc.position, expLoc.rotation);
+        }
+        else if (col.gameObject.name == "ChomperLazer(Clone)")
         {
             Destroy(gameObject);
             Instantiate(explosion, expLoc.position, expLoc.rotation);
