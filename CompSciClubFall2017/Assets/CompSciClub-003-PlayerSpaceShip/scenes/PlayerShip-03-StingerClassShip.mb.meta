@@ -1,0 +1,160 @@
+fileFormatVersion: 2
+guid: d658d7be30502e946bbb990f666e1b2f
+timeCreated: 1517620919
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: group
+    100002: pasted__pCone1
+    100004: pasted__pCone2
+    100006: pasted__pCone3
+    100008: pasted__pCone4
+    100010: pasted__pCube1
+    100012: pasted__pSphere1
+    100014: pCylinder2
+    100016: pCylinder3
+    100018: pCylinder5
+    100020: pCylinder6
+    100022: pCylinder8
+    100024: //RootNode
+    100026: transform1
+    100028: transform2
+    100030: transform3
+    100032: transform4
+    100034: transform5
+    400000: group
+    400002: pasted__pCone1
+    400004: pasted__pCone2
+    400006: pasted__pCone3
+    400008: pasted__pCone4
+    400010: pasted__pCube1
+    400012: pasted__pSphere1
+    400014: pCylinder2
+    400016: pCylinder3
+    400018: pCylinder5
+    400020: pCylinder6
+    400022: pCylinder8
+    400024: //RootNode
+    400026: transform1
+    400028: transform2
+    400030: transform3
+    400032: transform4
+    400034: transform5
+    2300000: pasted__pCone1
+    2300002: pasted__pCone2
+    2300004: pasted__pCone3
+    2300006: pasted__pCone4
+    2300008: pasted__pCube1
+    2300010: pasted__pSphere1
+    3300000: pasted__pCone1
+    3300002: pasted__pCone2
+    3300004: pasted__pCone3
+    3300006: pasted__pCone4
+    3300008: pasted__pCube1
+    3300010: pasted__pSphere1
+    4300000: pasted__pSphere1
+    4300002: pasted__pCube1
+    4300004: pasted__pCone1
+    4300006: pasted__pCone2
+    4300008: pasted__pCone3
+    4300010: pasted__pCone4
+    9500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BlueWindow
+    second: {fileID: 2100000, guid: ed0c8bef22102d942b8ed6dc7d63179e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: StingerBlue
+    second: {fileID: 2100000, guid: 0b0c3c582cada7c438375454a921b65f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: StingerRed
+    second: {fileID: 2100000, guid: 219693543cf8834478b7bb1bba5a0072, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: StingerYellow
+    second: {fileID: 2100000, guid: 371f90eb0d5d63f4c8c6c347ea539f73, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

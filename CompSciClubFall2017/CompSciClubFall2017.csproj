@@ -261,10 +261,22 @@
     <Compile Include="Assets\Scripts\OrbThingMover.cs" />
     <Compile Include="Assets\Scripts\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
-    <Compile Include="Assets\Scripts\PointSystem.cs" />
+    <Compile Include="Assets\Scripts\Point System\HighScoreSystem.cs" />
+    <Compile Include="Assets\Scripts\Point System\PointSystem.cs" />
+    <Compile Include="Assets\Scripts\Unlock System\EquipSystem.cs" />
+    <Compile Include="Assets\Scripts\Unlock System\IsEquipedButtons.cs" />
+    <Compile Include="Assets\Scripts\Unlock System\Rotate.cs" />
+    <Compile Include="Assets\Scripts\Unlock System\UnlockHoverOverScript.cs" />
+    <Compile Include="Assets\Scripts\Unlock System\UnlockingSystem.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Config.txt" />
     <None Include="Assets\Fonts\OFL.txt" />
+    <None Include="Assets\Scripts\Point System\HighScore.txt" />
+    <None Include="Assets\Scripts\Point System\TempScore.txt" />
+    <None Include="Assets\Scripts\Unlock System\ShipCurrentlyEquipped.txt" />
+    <None Include="Assets\Scripts\Unlock System\WhatIsUnlocked - backup.txt" />
+    <None Include="Assets\Scripts\Unlock System\WhatIsUnlocked.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

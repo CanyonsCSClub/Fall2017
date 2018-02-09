@@ -1,0 +1,11 @@
+======================================
+=== Space Shooter 9000 Config File ===
+======================================
+
+Unlockables: 
+
+Ship 01 = T
+Ship 02 = F
+Ship 03 = F
+Ship 04 = F
+Ship 05 = F

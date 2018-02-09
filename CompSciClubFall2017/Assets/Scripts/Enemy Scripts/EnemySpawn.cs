@@ -25,6 +25,8 @@ public class EnemySpawn : MonoBehaviour {
     private int countOfChomper;         // Used to know how many Chompers there are on the map 
     private int countOfCrabber;       // Used to know how many Squidward there are on the map 
 
+    public int spawnFrom = 0; 
+
     private int countOfAllEnem;         // Used to know how many enemies in total there are on the map 
    
 	
@@ -35,7 +37,7 @@ public class EnemySpawn : MonoBehaviour {
         countOfChomper = GameObject.FindGameObjectsWithTag("Chomper").Length;       // Making countOfChomper = the ammount of objects there are that use the "Chomper" tag 
         countOfCrabber = GameObject.FindGameObjectsWithTag("Crabber").Length;       // Making countOfSquider = the ammount of objects there are that use the "Squider" tag 
         countOfAllEnem = countOfStinger + countOfChomper + countOfCrabber;          // Making countOfAllEnem = countOfStinger plus countOfChomper
-        randNum = Random.Range(0, 3);                                               // Making randNum = a random number between 0 and 2 
+        randNum = Random.Range(spawnFrom, 3);                                               // Making randNum = a random number between 0 and 2 
 
         if      (randNum == 0 && Time.time > nextSpawn && countOfAllEnem < 5) 
         {

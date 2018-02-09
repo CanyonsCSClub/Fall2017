@@ -41,10 +41,23 @@ public class AsteroidUp   : MonoBehaviour
             Destroy(col.gameObject);
             Destroy(gameObject);
         }
-
+        else if (col.gameObject.name == "Stinger(Clone)")
+        {
+            col.gameObject.GetComponent<ChomperClass>().takeDamage(1);
+        }
+        else if (col.gameObject.name == "Chomper(Clone)")
+        {
+            col.gameObject.GetComponent<ChomperClass>().takeDamage(1);
+        }
+        else if (col.gameObject.name == "Crabber(Clone)")
+        {
+            col.gameObject.GetComponent<ChomperClass>().takeDamage(1);
+        }
+        else if (col.gameObject.name == "Striker(Clone)")
+        {
+            col.gameObject.GetComponent<ChomperClass>().takeDamage(1);
+        }
     }
-
-
 }
 
 
