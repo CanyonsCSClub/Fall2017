@@ -3,7 +3,7 @@ WhatIsUnlocked.txt
 Ship01: 
 Y
 Ship02: 
-N
+Y
 Ship03: 
 N
 Ship04: 
