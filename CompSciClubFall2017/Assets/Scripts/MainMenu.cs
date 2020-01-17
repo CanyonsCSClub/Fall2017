@@ -19,17 +19,35 @@ public class MainMenu : MonoBehaviour
     void OnMouseUp()
     {
         if (isMainMenu)
-        { Application.LoadLevel(0); }
+        {
+            Time.timeScale = 1;
+            Application.LoadLevel(0);
+        }
         if (isStart)
-    	{ Application.LoadLevel(1); }
+    	{
+            Time.timeScale = 1;
+            Application.LoadLevel(1);
+        }
         if (isHangar)
-        { Application.LoadLevel(2); }
+        {
+            Time.timeScale = 1;
+            Application.LoadLevel(2);
+        }
         if (isControls)
-        { Application.LoadLevel(3); }
+        {
+            Time.timeScale = 1;
+            Application.LoadLevel(3);
+        }
         if (isCredits)
-        { Application.LoadLevel(4); }
+        {
+            Time.timeScale = 1;
+            Application.LoadLevel(4);
+        }
         if (isQuit)
-	    { Application.Quit(); }
+	    {
+            Time.timeScale = 1;
+            Application.Quit();
+        }
         if (isResume)
         {
             canvasObj.gameObject.SetActive(false); 
